@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Экосистема TAXI - 6 токенов</title>
+    <title>$TAXI Ecosystem - 6 Tokens</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚖</text></svg>">
 </head>
@@ -15,18 +15,37 @@
                 <span class="logo-text">$TAXI</span>
             </div>
             <div class="nav-links">
-                <a href="index.html">Главная</a>
-                <a href="ecosystem.html" class="active">Экосистема</a>
-                <a href="dashboard.html">Дашборд</a>
-                <button id="connectWallet2" class="wallet-btn">🔗 Подключить</button>
+                <a href="index.html" data-i18n="nav_home">Home</a>
+                <a href="ecosystem.html" class="active" data-i18n="nav_ecosystem">Ecosystem</a>
+                <a href="dashboard.html" data-i18n="nav_dashboard">Dashboard</a>
+                <div class="language-selector">
+                    <button class="lang-btn" onclick="toggleLanguages()">
+                        🌍 <span id="currentLangLabel">EN</span>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <button onclick="setLanguage('en')">🇬🇧 English</button>
+                        <button onclick="setLanguage('zh-CN')">🇨🇳 中文 (简体)</button>
+                        <button onclick="setLanguage('zh-TW')">🇹🇼 中文 (繁體)</button>
+                        <button onclick="setLanguage('ja')">🇯🇵 日本語</button>
+                        <button onclick="setLanguage('ko')">🇰🇷 한국어</button>
+                        <button onclick="setLanguage('vi')">🇻🇳 Tiếng Việt</button>
+                        <button onclick="setLanguage('th')">🇹🇭 ภาษาไทย</button>
+                        <button onclick="setLanguage('ms')">🇲🇾 Bahasa Melayu</button>
+                        <button onclick="setLanguage('id')">🇮🇩 Bahasa Indonesia</button>
+                        <button onclick="setLanguage('es')">🇪🇸 Español</button>
+                        <button onclick="setLanguage('ru')">🇷🇺 Русский</button>
+                        <button onclick="setLanguage('ar')">🇸🇦 العربية</button>
+                    </div>
+                </div>
+                <button id="connectWallet2" class="wallet-btn">🔗 Connect</button>
             </div>
         </div>
     </nav>
 
     <section class="ecosystem-hero">
         <div class="container">
-            <h1>🌍 Экосистема <span class="gradient-text">$TAXI</span></h1>
-            <p>6 взаимосвязанных токенов для создания глобальной децентрализованной платформы</p>
+            <h1><span data-i18n="eco_title">🌍 $TAXI Ecosystem</span></h1>
+            <p data-i18n="eco_sub">6 interconnected tokens for a global decentralized platform</p>
         </div>
     </section>
 
@@ -37,31 +56,31 @@
                     <span class="main-token-icon">🚖</span>
                     <div>
                         <h2>$TAXI</h2>
-                        <span class="token-role">⭐ Основной токен экосистемы</span>
+                        <span class="token-role" data-i18n="taxi_role">⭐ Main Ecosystem Token</span>
                     </div>
                 </div>
                 <div class="token-details">
                     <div class="detail-item">
-                        <span class="label">Цена</span>
+                        <span class="label" data-i18n="taxi_price">Price</span>
                         <span class="value">$0.0001</span>
                     </div>
                     <div class="detail-item">
-                        <span class="label">Supply</span>
+                        <span class="label" data-i18n="taxi_supply">Supply</span>
                         <span class="value">5,000,000,000,000,000</span>
                     </div>
                     <div class="detail-item">
-                        <span class="label">Капа</span>
-                        <span class="value">$500 млрд</span>
+                        <span class="label" data-i18n="taxi_cap">Market Cap</span>
+                        <span class="value">$500B</span>
                     </div>
                     <div class="detail-item">
-                        <span class="label">Адрес</span>
+                        <span class="label" data-i18n="taxi_address">Address</span>
                         <span class="value address" onclick="copyAddress(this)">3YBgdJkNi41H4AtqNtywFdTx11H5CmDvt8qB3QHxninS</span>
                     </div>
                 </div>
                 <div class="token-actions">
-                    <button class="btn-primary-small">💳 Купить</button>
-                    <button class="btn-secondary-small">💧 Пулы</button>
-                    <button class="btn-secondary-small">📊 Стейкинг</button>
+                    <button class="btn-primary-small" data-i18n="taxi_buy">💳 Buy</button>
+                    <button class="btn-secondary-small" data-i18n="taxi_pools">💧 Pools</button>
+                    <button class="btn-secondary-small" data-i18n="taxi_staking">📊 Staking</button>
                 </div>
             </div>
         </div>
@@ -69,7 +88,7 @@
 
     <section class="satellite-tokens">
         <div class="container">
-            <h2 class="section-title">🛰️ Сателлитные <span class="highlight">токены</span></h2>
+            <h2 class="section-title"><span data-i18n="sat_title">🛰️ Satellite</span> <span class="highlight" data-i18n="sat_title2">Tokens</span></h2>
             <div class="tokens-grid">
                 
                 <div class="token-card">
@@ -77,17 +96,17 @@
                         <span class="token-icon">🚘</span>
                         <div>
                             <h3>$UBER</h3>
-                            <span class="token-tag">Стейкинг</span>
+                            <span class="token-tag">Staking</span>
                         </div>
                     </div>
-                    <p class="token-desc">Unified Blockchain Express Ride — стейкинг и скидки до 30%. Доступ к бизнес-классу.</p>
+                    <p class="token-desc" data-i18n="uber_desc">Unified Blockchain Express Ride — staking and up to 30% discounts. Access to business class and priority calls.</p>
                     <div class="token-stats">
                         <span>💰 $0.00005</span>
                         <span>📦 10Q</span>
                         <span>📈 $500B</span>
                     </div>
                     <div class="token-features">
-                        <span class="feature-badge">✔ Interest</span>
+                        <span class="feature-badge">✔ Interest Extension</span>
                         <span class="feature-badge">✔ APY 25%</span>
                     </div>
                 </div>
@@ -100,7 +119,7 @@
                             <span class="token-tag">DAO</span>
                         </div>
                     </div>
-                    <p class="token-desc">Decentralized Haul Ledger — управление экосистемой. Голосование за города и бюджет.</p>
+                    <p class="token-desc" data-i18n="dhl_desc">Decentralized Haul Ledger — ecosystem governance. Voting for cities, fees, and budget.</p>
                     <div class="token-stats">
                         <span>💰 $0.00005</span>
                         <span>📦 10Q</span>
@@ -108,7 +127,7 @@
                     </div>
                     <div class="token-features">
                         <span class="feature-badge">✔ Transfer Hook</span>
-                        <span class="feature-badge">✔ DAO</span>
+                        <span class="feature-badge">✔ DAO Governance</span>
                     </div>
                 </div>
 
@@ -117,18 +136,18 @@
                         <span class="token-icon">💵</span>
                         <div>
                             <h3>$TIP</h3>
-                            <span class="token-tag">Чаевые</span>
+                            <span class="token-tag">Tips</span>
                         </div>
                     </div>
-                    <p class="token-desc">Transaction Incentive Program — универсальный токен чаевых в такси, кафе, отелях.</p>
+                    <p class="token-desc" data-i18n="tip_desc">Transaction Incentive Program — universal tip token for taxis, cafes, restaurants, hotels.</p>
                     <div class="token-stats">
                         <span>💰 $0.00001</span>
                         <span>📦 50Q</span>
                         <span>📈 $500B</span>
                     </div>
                     <div class="token-features">
-                        <span class="feature-badge">✔ Самый дешевый</span>
-                        <span class="feature-badge">✔ Ускорение</span>
+                        <span class="feature-badge">✔ Cheapest</span>
+                        <span class="feature-badge">✔ Acceleration</span>
                     </div>
                 </div>
 
@@ -140,15 +159,16 @@
                             <span class="token-tag">2030</span>
                         </div>
                     </div>
-                    <p class="token-desc">Fuel eXchange — зарезервирован для топливных пулов и B2B-логистики в 2030 году.</p>
+                    <p class="token-desc" data-i18n="fdx_desc">Fuel eXchange — reserved for fuel pools, B2B logistics, and carbon credits in 2030.</p>
                     <div class="token-stats">
                         <span>💰 $0.00005</span>
                         <span>📦 10Q</span>
                         <span>📈 $500B</span>
                     </div>
                     <div class="token-features">
-                        <span class="feature-badge">⏳ Будущий</span>
-                        <span class="feature-badge">♻️ Карбон</span>
+                        <span class="feature-badge">⏳ Future</span>
+                        <span class="feature-badge">♻️ Carbon</span>
+                        <span class="feature-badge">🚛 B2B</span>
                     </div>
                 </div>
 
@@ -157,18 +177,19 @@
                         <span class="token-icon">🇨🇳</span>
                         <div>
                             <h3>$DIDI</h3>
-                            <span class="token-tag">Китай</span>
+                            <span class="token-tag">China</span>
                         </div>
                     </div>
-                    <p class="token-desc">Decentralized Intelligent Driving Infrastructure — региональный токен для Китая.</p>
+                    <p class="token-desc" data-i18n="didi_desc">Decentralized Intelligent Driving Infrastructure — regional token for China and East Asia.</p>
                     <div class="token-stats">
                         <span>💰 $0.00005</span>
                         <span>📦 10Q</span>
                         <span>📈 $500B</span>
                     </div>
                     <div class="token-features">
-                        <span class="feature-badge">🌏 Восточная Азия</span>
-                        <span class="feature-badge">🚗 Каршеринг</span>
+                        <span class="feature-badge">🌏 East Asia</span>
+                        <span class="feature-badge">🚗 Car Sharing</span>
+                        <span class="feature-badge">🏮 Culture</span>
                     </div>
                 </div>
 
@@ -177,10 +198,10 @@
                         <span class="token-icon">🇸🇬</span>
                         <div>
                             <h3>$GRAB</h3>
-                            <span class="token-tag">ЮВА</span>
+                            <span class="token-tag">ASEAN</span>
                         </div>
                     </div>
-                    <p class="token-desc">Global Ride and App-Based — региональный токен для Юго-Восточной Азии.</p>
+                    <p class="token-desc" data-i18n="grab_desc">Global Ride and App-Based — regional token for Southeast Asia (ASEAN).</p>
                     <div class="token-stats">
                         <span>💰 $0.00005</span>
                         <span>📦 10Q</span>
@@ -188,7 +209,8 @@
                     </div>
                     <div class="token-features">
                         <span class="feature-badge">🌏 ASEAN</span>
-                        <span class="feature-badge">🏨 Отели</span>
+                        <span class="feature-badge">🏨 Hotels</span>
+                        <span class="feature-badge">🛵 Delivery</span>
                     </div>
                 </div>
 
@@ -198,22 +220,53 @@
 
     <section class="ecosystem-map">
         <div class="container">
-            <h2 class="section-title">🗺️ Карта <span class="highlight">экосистемы</span></h2>
+            <h2 class="section-title"><span data-i18n="map_title">🗺️ Ecosystem</span> <span class="highlight" data-i18n="map_title2">Map</span></h2>
             <div class="map-container">
-                <div class="map-node main">$TAXI</div>
+                <div class="map-node main">🚖 $TAXI</div>
                 <div class="map-connections">
-                    <div class="map-connection">
-                        <span class="conn-label">1:2</span>
-                        <span class="conn-arrow">→</span>
-                    </div>
+                    <span class="conn-arrow">⬇️</span>
                 </div>
                 <div class="map-nodes">
-                    <div class="map-node sub">$UBER</div>
-                    <div class="map-node sub">$DHL</div>
-                    <div class="map-node sub">$TIP</div>
-                    <div class="map-node sub">$FDX</div>
-                    <div class="map-node sub">$DIDI</div>
-                    <div class="map-node sub">$GRAB</div>
+                    <div class="map-node sub">🚘 $UBER</div>
+                    <div class="map-node sub">📦 $DHL</div>
+                    <div class="map-node sub">💵 $TIP</div>
+                    <div class="map-node sub">⛽ $FDX</div>
+                    <div class="map-node sub">🇨🇳 $DIDI</div>
+                    <div class="map-node sub">🇸🇬 $GRAB</div>
+                </div>
+                <div class="map-rates">
+                    <span class="rate-item">$TAXI → $UBER (1:2)</span>
+                    <span class="rate-item">$TAXI → $DIDI (1:2)</span>
+                    <span class="rate-item">$TAXI → $GRAB (1:2)</span>
+                    <span class="rate-item">$TIP → $UBER (10:1)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="regional-features">
+        <div class="container">
+            <h2 class="section-title"><span data-i18n="regional_title">🌏 Regional</span> <span class="highlight" data-i18n="regional_title2">Tokens</span></h2>
+            <div class="regional-grid">
+                <div class="regional-card">
+                    <div class="regional-icon">🇨🇳</div>
+                    <h3>$DIDI — <span data-i18n="didi_region">East Asia</span></h3>
+                    <p data-i18n="didi_region">China, Japan, Korea, Taiwan</p>
+                    <div class="regional-details">
+                        <span>🚗 Taxi & Car Sharing</span>
+                        <span>📦 Delivery</span>
+                        <span>🏮 Local Integration</span>
+                    </div>
+                </div>
+                <div class="regional-card">
+                    <div class="regional-icon">🇸🇬</div>
+                    <h3>$GRAB — <span data-i18n="grab_region">Southeast Asia</span></h3>
+                    <p data-i18n="grab_region">Singapore, Malaysia, Thailand, Vietnam, Indonesia</p>
+                    <div class="regional-details">
+                        <span>🛵 Taxi & Delivery</span>
+                        <span>🏨 Hotels & Tours</span>
+                        <span>🌴 ASEAN Integration</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -224,7 +277,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>$TAXI</h4>
-                    <p>Децентрализованная платформа такси и доставки на Solana</p>
+                    <p data-i18n="footer_desc">Decentralized taxi & delivery platform on Solana</p>
                     <div class="social-links">
                         <a href="#">🐦 Twitter</a>
                         <a href="#">💬 Telegram</a>
@@ -232,30 +285,35 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Токены</h4>
+                    <h4 data-i18n="footer_tokens">Tokens</h4>
                     <a href="#">$TAXI</a>
                     <a href="#">$UBER</a>
                     <a href="#">$DHL</a>
                     <a href="#">$TIP</a>
+                    <a href="#">$FDX</a>
+                    <a href="#">$DIDI</a>
+                    <a href="#">$GRAB</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Ресурсы</h4>
-                    <a href="#">Документация</a>
-                    <a href="#">Whitepaper</a>
-                    <a href="#">GitHub</a>
+                    <h4 data-i18n="footer_resources">Resources</h4>
+                    <a href="#" data-i18n="footer_docs">Documentation</a>
+                    <a href="#" data-i18n="footer_whitepaper">Whitepaper</a>
+                    <a href="#" data-i18n="footer_github">GitHub</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Контакты</h4>
+                    <h4 data-i18n="footer_contact">Contact</h4>
                     <a href="mailto:info@goldtaxi.io">info@goldtaxi.io</a>
+                    <a href="#" data-i18n="footer_partners">Partnership</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>© 2026 Gold Taxi. Все права защищены.</span>
+                <span>© 2026 Gold Taxi. <span data-i18n="footer_rights">All rights reserved.</span></span>
                 <span>Built on Solana 🚀</span>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script src="languages.js"></script>
 </body>
 </html>
