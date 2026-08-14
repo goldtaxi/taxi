@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дашборд TAXI - Цены и статистика</title>
+    <title>$TAXI Dashboard - Live Stats</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚖</text></svg>">
 </head>
@@ -15,18 +15,37 @@
                 <span class="logo-text">$TAXI</span>
             </div>
             <div class="nav-links">
-                <a href="index.html">Главная</a>
-                <a href="ecosystem.html">Экосистема</a>
-                <a href="dashboard.html" class="active">Дашборд</a>
-                <button id="connectWallet3" class="wallet-btn">🔗 Подключить</button>
+                <a href="index.html" data-i18n="nav_home">Home</a>
+                <a href="ecosystem.html" data-i18n="nav_ecosystem">Ecosystem</a>
+                <a href="dashboard.html" class="active" data-i18n="nav_dashboard">Dashboard</a>
+                <div class="language-selector">
+                    <button class="lang-btn" onclick="toggleLanguages()">
+                        🌍 <span id="currentLangLabel">EN</span>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <button onclick="setLanguage('en')">🇬🇧 English</button>
+                        <button onclick="setLanguage('zh-CN')">🇨🇳 中文 (简体)</button>
+                        <button onclick="setLanguage('zh-TW')">🇹🇼 中文 (繁體)</button>
+                        <button onclick="setLanguage('ja')">🇯🇵 日本語</button>
+                        <button onclick="setLanguage('ko')">🇰🇷 한국어</button>
+                        <button onclick="setLanguage('vi')">🇻🇳 Tiếng Việt</button>
+                        <button onclick="setLanguage('th')">🇹🇭 ภาษาไทย</button>
+                        <button onclick="setLanguage('ms')">🇲🇾 Bahasa Melayu</button>
+                        <button onclick="setLanguage('id')">🇮🇩 Bahasa Indonesia</button>
+                        <button onclick="setLanguage('es')">🇪🇸 Español</button>
+                        <button onclick="setLanguage('ru')">🇷🇺 Русский</button>
+                        <button onclick="setLanguage('ar')">🇸🇦 العربية</button>
+                    </div>
+                </div>
+                <button id="connectWallet3" class="wallet-btn">🔗 Connect</button>
             </div>
         </div>
     </nav>
 
     <section class="dashboard-hero">
         <div class="container">
-            <h1>📊 Дашборд <span class="gradient-text">$TAXI</span></h1>
-            <p>Цены, объемы и статистика экосистемы в реальном времени</p>
+            <h1><span data-i18n="dash_title">📊 $TAXI</span> <span class="gradient-text" data-i18n="dash_title2">Dashboard</span></h1>
+            <p data-i18n="dash_sub">Real-time prices, volumes, and ecosystem statistics</p>
         </div>
     </section>
 
@@ -36,7 +55,7 @@
                 <div class="stat-card">
                     <div class="stat-card-icon">💰</div>
                     <div class="stat-card-content">
-                        <span class="stat-label">Капитализация</span>
+                        <span class="stat-label" data-i18n="stat_mcap">Market Cap</span>
                         <span class="stat-number">$500,000,000,000</span>
                         <span class="stat-change positive">+12.5%</span>
                     </div>
@@ -44,7 +63,7 @@
                 <div class="stat-card">
                     <div class="stat-card-icon">📈</div>
                     <div class="stat-card-content">
-                        <span class="stat-label">Объем 24ч</span>
+                        <span class="stat-label" data-i18n="stat_24h">24h Volume</span>
                         <span class="stat-number">$1,250,000,000</span>
                         <span class="stat-change positive">+8.3%</span>
                     </div>
@@ -52,7 +71,7 @@
                 <div class="stat-card">
                     <div class="stat-card-icon">👥</div>
                     <div class="stat-card-content">
-                        <span class="stat-label">Держатели</span>
+                        <span class="stat-label" data-i18n="stat_holders">Holders</span>
                         <span class="stat-number">125,847</span>
                         <span class="stat-change positive">+2,341</span>
                     </div>
@@ -60,7 +79,7 @@
                 <div class="stat-card">
                     <div class="stat-card-icon">💧</div>
                     <div class="stat-card-content">
-                        <span class="stat-label">TVL</span>
+                        <span class="stat-label" data-i18n="stat_tvl">TVL</span>
                         <span class="stat-number">$2,300,000,000</span>
                         <span class="stat-change positive">+15.7%</span>
                     </div>
@@ -72,7 +91,7 @@
     <section class="price-chart">
         <div class="container">
             <div class="chart-container">
-                <h3>Цена $TAXI</h3>
+                <h3 data-i18n="chart_title">📈 $TAXI Price</h3>
                 <div class="chart-placeholder">
                     <div class="chart-bars">
                         <div class="chart-bar" style="height: 30%"></div>
@@ -102,63 +121,63 @@
 
     <section class="all-tokens">
         <div class="container">
-            <h2 class="section-title">Все токены <span class="highlight">экосистемы</span></h2>
+            <h2 class="section-title"><span data-i18n="all_tokens">All Ecosystem</span> <span class="highlight" data-i18n="all_tokens2">Tokens</span></h2>
             <div class="tokens-table">
                 <div class="table-header">
-                    <span>Токен</span>
-                    <span>Цена</span>
-                    <span>24ч %</span>
-                    <span>Капа</span>
-                    <span>Действие</span>
+                    <span data-i18n="token_col">Token</span>
+                    <span data-i18n="price_col">Price</span>
+                    <span data-i18n="change_col">24h %</span>
+                    <span data-i18n="cap_col">Market Cap</span>
+                    <span data-i18n="action_col">Action</span>
                 </div>
                 <div class="table-row">
                     <span class="token-name">🚖 $TAXI</span>
                     <span>$0.000112</span>
                     <span class="positive">+12.5%</span>
                     <span>$500B</span>
-                    <button class="btn-table">Торговать</button>
+                    <button class="btn-table" data-i18n="trade_btn">Trade</button>
                 </div>
                 <div class="table-row">
                     <span class="token-name">🚘 $UBER</span>
                     <span>$0.000056</span>
                     <span class="positive">+8.7%</span>
                     <span>$500B</span>
-                    <button class="btn-table">Торговать</button>
+                    <button class="btn-table" data-i18n="trade_btn">Trade</button>
                 </div>
                 <div class="table-row">
                     <span class="token-name">📦 $DHL</span>
                     <span>$0.000052</span>
                     <span class="positive">+5.2%</span>
                     <span>$500B</span>
-                    <button class="btn-table">Торговать</button>
+                    <button class="btn-table" data-i18n="trade_btn">Trade</button>
                 </div>
                 <div class="table-row">
                     <span class="token-name">💵 $TIP</span>
                     <span>$0.000011</span>
                     <span class="positive">+15.3%</span>
                     <span>$500B</span>
-                    <button class="btn-table">Торговать</button>
+                    <button class="btn-table" data-i18n="trade_btn">Trade</button>
                 </div>
                 <div class="table-row">
                     <span class="token-name">⛽ $FDX</span>
                     <span>$0.000050</span>
                     <span class="neutral">0.0%</span>
                     <span>$500B</span>
-                    <button class="btn-table disabled">Скоро</button>
+                    <button class="btn-table disabled" data-i18n="soon_btn">Soon</button>
                 </div>
                 <div class="table-row">
                     <span class="token-name">🇨🇳 $DIDI</span>
                     <span>$0.000053</span>
                     <span class="positive">+6.8%</span>
                     <span>$500B</span>
-                    <button class="btn-table">Торговать</button>
+                    <button class="btn-table" data-i18n="trade_btn">Trade</button>
                 </div>
                 <div class="table-row">
                     <span class="token-name">🇸🇬 $GRAB</span>
                     <span>$0.000051</span>
                     <span class="positive">+4.9%</span>
                     <span>$500B</span>
-                    <button class="btn-table">Торговать</button>
+                    <button class="btn-table" data-i18n="trade_btn">Trade</button>
                 </div>
             </div>
         </div>
@@ -167,7 +186,7 @@
     <section class="wallet-info">
         <div class="container">
             <div class="wallet-card">
-                <h3>🔐 Ваш кошелек</h3>
+                <h3 data-i18n="wallet_title">🔐 Your Wallet</h3>
                 <div class="wallet-balance">
                     <div class="balance-item">
                         <span class="balance-label">$TAXI</span>
@@ -185,8 +204,20 @@
                         <span class="balance-label">$TIP</span>
                         <span class="balance-amount">0.00</span>
                     </div>
+                    <div class="balance-item">
+                        <span class="balance-label">$FDX</span>
+                        <span class="balance-amount">0.00</span>
+                    </div>
+                    <div class="balance-item">
+                        <span class="balance-label">$DIDI</span>
+                        <span class="balance-amount">0.00</span>
+                    </div>
+                    <div class="balance-item">
+                        <span class="balance-label">$GRAB</span>
+                        <span class="balance-amount">0.00</span>
+                    </div>
                 </div>
-                <button class="btn-primary-small">Подключить кошелек</button>
+                <button class="btn-primary-small" data-i18n="connect_wallet">Connect Wallet</button>
             </div>
         </div>
     </section>
@@ -196,7 +227,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>$TAXI</h4>
-                    <p>Децентрализованная платформа такси и доставки на Solana</p>
+                    <p data-i18n="footer_desc">Decentralized taxi & delivery platform on Solana</p>
                     <div class="social-links">
                         <a href="#">🐦 Twitter</a>
                         <a href="#">💬 Telegram</a>
@@ -204,30 +235,35 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Токены</h4>
+                    <h4 data-i18n="footer_tokens">Tokens</h4>
                     <a href="#">$TAXI</a>
                     <a href="#">$UBER</a>
                     <a href="#">$DHL</a>
                     <a href="#">$TIP</a>
+                    <a href="#">$FDX</a>
+                    <a href="#">$DIDI</a>
+                    <a href="#">$GRAB</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Ресурсы</h4>
-                    <a href="#">Документация</a>
-                    <a href="#">Whitepaper</a>
-                    <a href="#">GitHub</a>
+                    <h4 data-i18n="footer_resources">Resources</h4>
+                    <a href="#" data-i18n="footer_docs">Documentation</a>
+                    <a href="#" data-i18n="footer_whitepaper">Whitepaper</a>
+                    <a href="#" data-i18n="footer_github">GitHub</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Контакты</h4>
+                    <h4 data-i18n="footer_contact">Contact</h4>
                     <a href="mailto:info@goldtaxi.io">info@goldtaxi.io</a>
+                    <a href="#" data-i18n="footer_partners">Partnership</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>© 2026 Gold Taxi. Все права защищены.</span>
+                <span>© 2026 Gold Taxi. <span data-i18n="footer_rights">All rights reserved.</span></span>
                 <span>Built on Solana 🚀</span>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script src="languages.js"></script>
 </body>
 </html>
