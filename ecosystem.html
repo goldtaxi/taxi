@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экосистема TAXI - 6 токенов</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚖</text></svg>">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🚖</span>
+                <span class="logo-text">$TAXI</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Главная</a>
+                <a href="ecosystem.html" class="active">Экосистема</a>
+                <a href="dashboard.html">Дашборд</a>
+                <button id="connectWallet2" class="wallet-btn">🔗 Подключить</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="ecosystem-hero">
+        <div class="container">
+            <h1>🌍 Экосистема <span class="gradient-text">$TAXI</span></h1>
+            <p>6 взаимосвязанных токенов для создания глобальной децентрализованной платформы</p>
+        </div>
+    </section>
+
+    <section class="main-token">
+        <div class="container">
+            <div class="main-token-card">
+                <div class="token-header">
+                    <span class="main-token-icon">🚖</span>
+                    <div>
+                        <h2>$TAXI</h2>
+                        <span class="token-role">⭐ Основной токен экосистемы</span>
+                    </div>
+                </div>
+                <div class="token-details">
+                    <div class="detail-item">
+                        <span class="label">Цена</span>
+                        <span class="value">$0.0001</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Supply</span>
+                        <span class="value">5,000,000,000,000,000</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Капа</span>
+                        <span class="value">$500 млрд</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Адрес</span>
+                        <span class="value address" onclick="copyAddress(this)">3YBgdJkNi41H4AtqNtywFdTx11H5CmDvt8qB3QHxninS</span>
+                    </div>
+                </div>
+                <div class="token-actions">
+                    <button class="btn-primary-small">💳 Купить</button>
+                    <button class="btn-secondary-small">💧 Пулы</button>
+                    <button class="btn-secondary-small">📊 Стейкинг</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="satellite-tokens">
+        <div class="container">
+            <h2 class="section-title">🛰️ Сателлитные <span class="highlight">токены</span></h2>
+            <div class="tokens-grid">
+                
+                <div class="token-card">
+                    <div class="token-card-header">
+                        <span class="token-icon">🚘</span>
+                        <div>
+                            <h3>$UBER</h3>
+                            <span class="token-tag">Стейкинг</span>
+                        </div>
+                    </div>
+                    <p class="token-desc">Unified Blockchain Express Ride — стейкинг и скидки до 30%. Доступ к бизнес-классу.</p>
+                    <div class="token-stats">
+                        <span>💰 $0.00005</span>
+                        <span>📦 10Q</span>
+                        <span>📈 $500B</span>
+                    </div>
+                    <div class="token-features">
+                        <span class="feature-badge">✔ Interest</span>
+                        <span class="feature-badge">✔ APY 25%</span>
+                    </div>
+                </div>
+
+                <div class="token-card">
+                    <div class="token-card-header">
+                        <span class="token-icon">📦</span>
+                        <div>
+                            <h3>$DHL</h3>
+                            <span class="token-tag">DAO</span>
+                        </div>
+                    </div>
+                    <p class="token-desc">Decentralized Haul Ledger — управление экосистемой. Голосование за города и бюджет.</p>
+                    <div class="token-stats">
+                        <span>💰 $0.00005</span>
+                        <span>📦 10Q</span>
+                        <span>📈 $500B</span>
+                    </div>
+                    <div class="token-features">
+                        <span class="feature-badge">✔ Transfer Hook</span>
+                        <span class="feature-badge">✔ DAO</span>
+                    </div>
+                </div>
+
+                <div class="token-card">
+                    <div class="token-card-header">
+                        <span class="token-icon">💵</span>
+                        <div>
+                            <h3>$TIP</h3>
+                            <span class="token-tag">Чаевые</span>
+                        </div>
+                    </div>
+                    <p class="token-desc">Transaction Incentive Program — универсальный токен чаевых в такси, кафе, отелях.</p>
+                    <div class="token-stats">
+                        <span>💰 $0.00001</span>
+                        <span>📦 50Q</span>
+                        <span>📈 $500B</span>
+                    </div>
+                    <div class="token-features">
+                        <span class="feature-badge">✔ Самый дешевый</span>
+                        <span class="feature-badge">✔ Ускорение</span>
+                    </div>
+                </div>
+
+                <div class="token-card">
+                    <div class="token-card-header">
+                        <span class="token-icon">⛽</span>
+                        <div>
+                            <h3>$FDX</h3>
+                            <span class="token-tag">2030</span>
+                        </div>
+                    </div>
+                    <p class="token-desc">Fuel eXchange — зарезервирован для топливных пулов и B2B-логистики в 2030 году.</p>
+                    <div class="token-stats">
+                        <span>💰 $0.00005</span>
+                        <span>📦 10Q</span>
+                        <span>📈 $500B</span>
+                    </div>
+                    <div class="token-features">
+                        <span class="feature-badge">⏳ Будущий</span>
+                        <span class="feature-badge">♻️ Карбон</span>
+                    </div>
+                </div>
+
+                <div class="token-card">
+                    <div class="token-card-header">
+                        <span class="token-icon">🇨🇳</span>
+                        <div>
+                            <h3>$DIDI</h3>
+                            <span class="token-tag">Китай</span>
+                        </div>
+                    </div>
+                    <p class="token-desc">Decentralized Intelligent Driving Infrastructure — региональный токен для Китая.</p>
+                    <div class="token-stats">
+                        <span>💰 $0.00005</span>
+                        <span>📦 10Q</span>
+                        <span>📈 $500B</span>
+                    </div>
+                    <div class="token-features">
+                        <span class="feature-badge">🌏 Восточная Азия</span>
+                        <span class="feature-badge">🚗 Каршеринг</span>
+                    </div>
+                </div>
+
+                <div class="token-card">
+                    <div class="token-card-header">
+                        <span class="token-icon">🇸🇬</span>
+                        <div>
+                            <h3>$GRAB</h3>
+                            <span class="token-tag">ЮВА</span>
+                        </div>
+                    </div>
+                    <p class="token-desc">Global Ride and App-Based — региональный токен для Юго-Восточной Азии.</p>
+                    <div class="token-stats">
+                        <span>💰 $0.00005</span>
+                        <span>📦 10Q</span>
+                        <span>📈 $500B</span>
+                    </div>
+                    <div class="token-features">
+                        <span class="feature-badge">🌏 ASEAN</span>
+                        <span class="feature-badge">🏨 Отели</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="ecosystem-map">
+        <div class="container">
+            <h2 class="section-title">🗺️ Карта <span class="highlight">экосистемы</span></h2>
+            <div class="map-container">
+                <div class="map-node main">$TAXI</div>
+                <div class="map-connections">
+                    <div class="map-connection">
+                        <span class="conn-label">1:2</span>
+                        <span class="conn-arrow">→</span>
+                    </div>
+                </div>
+                <div class="map-nodes">
+                    <div class="map-node sub">$UBER</div>
+                    <div class="map-node sub">$DHL</div>
+                    <div class="map-node sub">$TIP</div>
+                    <div class="map-node sub">$FDX</div>
+                    <div class="map-node sub">$DIDI</div>
+                    <div class="map-node sub">$GRAB</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>$TAXI</h4>
+                    <p>Децентрализованная платформа такси и доставки на Solana</p>
+                    <div class="social-links">
+                        <a href="#">🐦 Twitter</a>
+                        <a href="#">💬 Telegram</a>
+                        <a href="#">📱 Discord</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Токены</h4>
+                    <a href="#">$TAXI</a>
+                    <a href="#">$UBER</a>
+                    <a href="#">$DHL</a>
+                    <a href="#">$TIP</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Ресурсы</h4>
+                    <a href="#">Документация</a>
+                    <a href="#">Whitepaper</a>
+                    <a href="#">GitHub</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <a href="mailto:info@goldtaxi.io">info@goldtaxi.io</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Gold Taxi. Все права защищены.</span>
+                <span>Built on Solana 🚀</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
