@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дашборд TAXI - Цены и статистика</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚖</text></svg>">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🚖</span>
+                <span class="logo-text">$TAXI</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Главная</a>
+                <a href="ecosystem.html">Экосистема</a>
+                <a href="dashboard.html" class="active">Дашборд</a>
+                <button id="connectWallet3" class="wallet-btn">🔗 Подключить</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="dashboard-hero">
+        <div class="container">
+            <h1>📊 Дашборд <span class="gradient-text">$TAXI</span></h1>
+            <p>Цены, объемы и статистика экосистемы в реальном времени</p>
+        </div>
+    </section>
+
+    <section class="dashboard-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-icon">💰</div>
+                    <div class="stat-card-content">
+                        <span class="stat-label">Капитализация</span>
+                        <span class="stat-number">$500,000,000,000</span>
+                        <span class="stat-change positive">+12.5%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">📈</div>
+                    <div class="stat-card-content">
+                        <span class="stat-label">Объем 24ч</span>
+                        <span class="stat-number">$1,250,000,000</span>
+                        <span class="stat-change positive">+8.3%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">👥</div>
+                    <div class="stat-card-content">
+                        <span class="stat-label">Держатели</span>
+                        <span class="stat-number">125,847</span>
+                        <span class="stat-change positive">+2,341</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">💧</div>
+                    <div class="stat-card-content">
+                        <span class="stat-label">TVL</span>
+                        <span class="stat-number">$2,300,000,000</span>
+                        <span class="stat-change positive">+15.7%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="price-chart">
+        <div class="container">
+            <div class="chart-container">
+                <h3>Цена $TAXI</h3>
+                <div class="chart-placeholder">
+                    <div class="chart-bars">
+                        <div class="chart-bar" style="height: 30%"></div>
+                        <div class="chart-bar" style="height: 45%"></div>
+                        <div class="chart-bar" style="height: 25%"></div>
+                        <div class="chart-bar" style="height: 60%"></div>
+                        <div class="chart-bar" style="height: 40%"></div>
+                        <div class="chart-bar" style="height: 75%"></div>
+                        <div class="chart-bar" style="height: 55%"></div>
+                        <div class="chart-bar" style="height: 85%"></div>
+                        <div class="chart-bar" style="height: 65%"></div>
+                        <div class="chart-bar" style="height: 90%"></div>
+                        <div class="chart-bar" style="height: 70%"></div>
+                        <div class="chart-bar" style="height: 95%"></div>
+                        <div class="chart-bar" style="height: 80%"></div>
+                        <div class="chart-bar" style="height: 100%"></div>
+                        <div class="chart-bar" style="height: 88%"></div>
+                    </div>
+                </div>
+                <div class="chart-price">
+                    <span class="current-price">$0.000112</span>
+                    <span class="price-change positive">+12.5%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="all-tokens">
+        <div class="container">
+            <h2 class="section-title">Все токены <span class="highlight">экосистемы</span></h2>
+            <div class="tokens-table">
+                <div class="table-header">
+                    <span>Токен</span>
+                    <span>Цена</span>
+                    <span>24ч %</span>
+                    <span>Капа</span>
+                    <span>Действие</span>
+                </div>
+                <div class="table-row">
+                    <span class="token-name">🚖 $TAXI</span>
+                    <span>$0.000112</span>
+                    <span class="positive">+12.5%</span>
+                    <span>$500B</span>
+                    <button class="btn-table">Торговать</button>
+                </div>
+                <div class="table-row">
+                    <span class="token-name">🚘 $UBER</span>
+                    <span>$0.000056</span>
+                    <span class="positive">+8.7%</span>
+                    <span>$500B</span>
+                    <button class="btn-table">Торговать</button>
+                </div>
+                <div class="table-row">
+                    <span class="token-name">📦 $DHL</span>
+                    <span>$0.000052</span>
+                    <span class="positive">+5.2%</span>
+                    <span>$500B</span>
+                    <button class="btn-table">Торговать</button>
+                </div>
+                <div class="table-row">
+                    <span class="token-name">💵 $TIP</span>
+                    <span>$0.000011</span>
+                    <span class="positive">+15.3%</span>
+                    <span>$500B</span>
+                    <button class="btn-table">Торговать</button>
+                </div>
+                <div class="table-row">
+                    <span class="token-name">⛽ $FDX</span>
+                    <span>$0.000050</span>
+                    <span class="neutral">0.0%</span>
+                    <span>$500B</span>
+                    <button class="btn-table disabled">Скоро</button>
+                </div>
+                <div class="table-row">
+                    <span class="token-name">🇨🇳 $DIDI</span>
+                    <span>$0.000053</span>
+                    <span class="positive">+6.8%</span>
+                    <span>$500B</span>
+                    <button class="btn-table">Торговать</button>
+                </div>
+                <div class="table-row">
+                    <span class="token-name">🇸🇬 $GRAB</span>
+                    <span>$0.000051</span>
+                    <span class="positive">+4.9%</span>
+                    <span>$500B</span>
+                    <button class="btn-table">Торговать</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wallet-info">
+        <div class="container">
+            <div class="wallet-card">
+                <h3>🔐 Ваш кошелек</h3>
+                <div class="wallet-balance">
+                    <div class="balance-item">
+                        <span class="balance-label">$TAXI</span>
+                        <span class="balance-amount">0.00</span>
+                    </div>
+                    <div class="balance-item">
+                        <span class="balance-label">$UBER</span>
+                        <span class="balance-amount">0.00</span>
+                    </div>
+                    <div class="balance-item">
+                        <span class="balance-label">$DHL</span>
+                        <span class="balance-amount">0.00</span>
+                    </div>
+                    <div class="balance-item">
+                        <span class="balance-label">$TIP</span>
+                        <span class="balance-amount">0.00</span>
+                    </div>
+                </div>
+                <button class="btn-primary-small">Подключить кошелек</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>$TAXI</h4>
+                    <p>Децентрализованная платформа такси и доставки на Solana</p>
+                    <div class="social-links">
+                        <a href="#">🐦 Twitter</a>
+                        <a href="#">💬 Telegram</a>
+                        <a href="#">📱 Discord</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Токены</h4>
+                    <a href="#">$TAXI</a>
+                    <a href="#">$UBER</a>
+                    <a href="#">$DHL</a>
+                    <a href="#">$TIP</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Ресурсы</h4>
+                    <a href="#">Документация</a>
+                    <a href="#">Whitepaper</a>
+                    <a href="#">GitHub</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <a href="mailto:info@goldtaxi.io">info@goldtaxi.io</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Gold Taxi. Все права защищены.</span>
+                <span>Built on Solana 🚀</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
