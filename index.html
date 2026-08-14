@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Taxi - Децентрализованное такси на Solana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚖</text></svg>">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🚖</span>
+                <span class="logo-text">$TAXI</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Главная</a>
+                <a href="ecosystem.html">Экосистема</a>
+                <a href="dashboard.html">Дашборд</a>
+                <button id="connectWallet" class="wallet-btn">🔗 Подключить</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">🚀 Запуск 2026</div>
+                <h1 class="hero-title">
+                    Децентрализованное<br>
+                    <span class="gradient-text">Такси будущего</span>
+                </h1>
+                <p class="hero-description">
+                    $TAXI — первый токен на Solana для глобальной платформы такси, 
+                    доставки и логистики. Зарабатывай, голосуй и получай скидки до 50%.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">$500B</span>
+                        <span class="stat-label">Market Cap</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-value">5Q</span>
+                        <span class="stat-label">Total Supply</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-value">$0.0001</span>
+                        <span class="stat-label">Initial Price</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn-primary" id="buyTaxi">
+                        Купить $TAXI →
+                    </button>
+                    <button class="btn-secondary" id="learnMore">
+                        Узнать больше
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="taxi-car">
+                    <div class="car-body"></div>
+                    <div class="car-wheel front"></div>
+                    <div class="car-wheel back"></div>
+                </div>
+                <div class="floating-tokens">
+                    <span class="token-bubble">$UBER</span>
+                    <span class="token-bubble">$DHL</span>
+                    <span class="token-bubble">$TIP</span>
+                    <span class="token-bubble">$FDX</span>
+                    <span class="token-bubble">$DIDI</span>
+                    <span class="token-bubble">$GRAB</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Почему <span class="highlight">$TAXI</span>?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Мгновенные транзакции</h3>
+                    <p>Solana обеспечивает скорость 400мс и комиссию < $0.001</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Полная безопасность</h3>
+                    <p>Токен-2022 стандарт с расширенными функциями защиты</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Глобальная экосистема</h3>
+                    <p>6 сателлитных токенов для разных регионов и задач</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏛️</div>
+                    <h3>Децентрализованное управление</h3>
+                    <p>DAO с правом голоса для держателей $DHL</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="exchange">
+        <div class="container">
+            <h2 class="section-title">Курсы обмена в <span class="highlight">экосистеме</span></h2>
+            <div class="exchange-grid">
+                <div class="exchange-card">
+                    <div class="exchange-pair">$TAXI → $TIP</div>
+                    <div class="exchange-rate">1 : 10</div>
+                    <div class="exchange-desc">Чаевые и ускорение</div>
+                </div>
+                <div class="exchange-card">
+                    <div class="exchange-pair">$TIP → $UBER</div>
+                    <div class="exchange-rate">10 : 1</div>
+                    <div class="exchange-desc">Стейкинг и скидки</div>
+                </div>
+                <div class="exchange-card">
+                    <div class="exchange-pair">$UBER → $DHL</div>
+                    <div class="exchange-rate">1 : 1</div>
+                    <div class="exchange-desc">DAO управление</div>
+                </div>
+                <div class="exchange-card">
+                    <div class="exchange-pair">$TAXI → $UBER</div>
+                    <div class="exchange-rate">1 : 2</div>
+                    <div class="exchange-desc">Бизнес-класс</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solana-badge">
+        <div class="container">
+            <div class="badge-content">
+                <span class="solana-icon">◎</span>
+                <span>Работает на</span>
+                <span class="solana-text">Solana</span>
+                <span class="badge-version">Token-2022</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>$TAXI</h4>
+                    <p>Децентрализованная платформа такси и доставки на Solana</p>
+                    <div class="social-links">
+                        <a href="#">🐦 Twitter</a>
+                        <a href="#">💬 Telegram</a>
+                        <a href="#">📱 Discord</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Токены</h4>
+                    <a href="#">$TAXI</a>
+                    <a href="#">$UBER</a>
+                    <a href="#">$DHL</a>
+                    <a href="#">$TIP</a>
+                    <a href="#">$FDX</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Ресурсы</h4>
+                    <a href="#">Документация</a>
+                    <a href="#">Whitepaper</a>
+                    <a href="#">GitHub</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <a href="mailto:info@goldtaxi.io">info@goldtaxi.io</a>
+                    <a href="#">Партнерство</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Gold Taxi. Все права защищены.</span>
+                <span>Built on Solana 🚀</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
