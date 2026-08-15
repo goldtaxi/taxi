@@ -5,13 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$TAXI Ecosystem - 6 Tokens</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚖</text></svg>">
+    <link rel="icon" href="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png">
 </head>
 <body>
+    <!-- БЕГУЩАЯ СТРОКА #1 -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span>🚖 $TAXI ECOSYSTEM — 7 TOKENS FOR GLOBAL TAXI 🚖</span>
+            <span>🚘 $UBER: STAKING & DISCOUNTS 🚘</span>
+            <span>📦 $DHL: DAO GOVERNANCE 📦</span>
+            <span>💵 $TIP: TIPS & ACCELERATION 💵</span>
+            <span>⛽ $FDX: FUEL & B2B (2030) ⛽</span>
+            <span>🇨🇳 $DIDI: CHINA & EAST ASIA 🇨🇳</span>
+            <span>🇸🇬 $GRAB: SOUTHEAST ASIA 🇸🇬</span>
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png" alt="$TAXI" height="40" style="border-radius: 50%;">
+                <img src="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png" alt="$TAXI" height="45" style="border-radius: 50%;">
                 <span class="logo-text">$TAXI</span>
             </div>
             <div class="nav-links">
@@ -43,6 +56,18 @@
             </div>
         </div>
     </nav>
+
+    <!-- ЛЕТАЮЩИЕ ПРЕДМЕТЫ -->
+    <div class="floating-objects">
+        <div class="float-coin">🚖</div>
+        <div class="float-coin">💰</div>
+        <div class="float-coin">⭐</div>
+        <div class="float-coin">🌍</div>
+        <div class="float-coin">🏆</div>
+        <div class="float-coin">💎</div>
+        <div class="float-coin">🔥</div>
+        <div class="float-coin">🚀</div>
+    </div>
 
     <section class="ecosystem-hero">
         <div class="container">
@@ -76,26 +101,42 @@
                     </div>
                     <div class="detail-item">
                         <span class="label">Address</span>
-                        <span class="value address" onclick="copyAddress(this)">3YBgdJkNi41H4AtqNtywFdTx11H5CmDvt8qB3QHxninS</span>
+                        <span class="value address" onclick="window.open('https://solscan.io/token/3YBgdJkNi41H4AtqNtywFdTx11H5CmDvt8qB3QHxninS', '_blank')">
+                            3YBgdJkNi41H4AtqNtywFdTx11H5CmDvt8qB3QHxninS
+                        </span>
                     </div>
                 </div>
                 <div class="token-actions">
                     <button class="btn-primary-small" onclick="window.location.href='staking.html'">💳 Stake</button>
                     <button class="btn-secondary-small" onclick="window.location.href='analytics.html'">📊 Analytics</button>
+                    <button class="btn-secondary-small" onclick="window.open('https://dexscreener.com', '_blank')">📈 Chart</button>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- БЕГУЩАЯ СТРОКА #2 -->
+    <div class="ticker-wrap ticker-secondary">
+        <div class="ticker">
+            <span>🔥 $UBER: STAKE & GET 30% DISCOUNTS 🔥</span>
+            <span>📊 $DHL: VOTE ON ECOSYSTEM PROPOSALS 📊</span>
+            <span>💵 $TIP: TIP IN TAXIS, CAFES, HOTELS 💵</span>
+            <span>⛽ $FDX: FUEL POOLS & CARBON CREDITS ⛽</span>
+            <span>🇨🇳 $DIDI: CHINA, JAPAN, KOREA 🇨🇳</span>
+            <span>🇸🇬 $GRAB: SINGAPORE, MALAYSIA, THAILAND 🇸🇬</span>
+        </div>
+    </div>
+
     <section class="satellite-tokens">
         <div class="container">
             <h2 class="section-title">🛰️ Satellite <span class="highlight">Tokens</span></h2>
             <div class="tokens-grid">
+                <!-- $UBER -->
                 <div class="token-card">
                     <div class="token-card-header">
                         <span class="token-icon">🚘</span>
                         <div>
-                            <h3>$UBER</h3>
+                            <h3 onclick="window.open('https://goldtaxi.github.io/uber/', '_blank')" style="cursor:pointer;">$UBER</h3>
                             <span class="token-tag">Staking</span>
                         </div>
                     </div>
@@ -105,12 +146,20 @@
                         <span>📦 10Q</span>
                         <span>📈 $500B</span>
                     </div>
+                    <div class="token-address">
+                        <span class="label">Address:</span>
+                        <span class="address" onclick="window.open('https://solscan.io/token/DEQqmxJXX8ESbePyUrtu9ipr34ZLjdN7GpbwSgjnjReg', '_blank')">
+                            DEQqmxJXX8ESbePyUrtu9ipr34ZLjdN7GpbwSgjnjReg
+                        </span>
+                    </div>
                     <div class="token-features">
                         <span class="feature-badge">✔ Interest Extension</span>
                         <span class="feature-badge">✔ APY 25%</span>
                     </div>
+                    <button class="btn-stake" onclick="window.open('https://goldtaxi.github.io/uber/', '_blank')">Learn More →</button>
                 </div>
 
+                <!-- $DHL -->
                 <div class="token-card">
                     <div class="token-card-header">
                         <span class="token-icon">📦</span>
@@ -125,17 +174,25 @@
                         <span>📦 10Q</span>
                         <span>📈 $500B</span>
                     </div>
+                    <div class="token-address">
+                        <span class="label">Address:</span>
+                        <span class="address" onclick="window.open('https://solscan.io', '_blank')">
+                            Coming Soon
+                        </span>
+                    </div>
                     <div class="token-features">
                         <span class="feature-badge">✔ Transfer Hook</span>
                         <span class="feature-badge">✔ DAO Governance</span>
                     </div>
+                    <button class="btn-stake" onclick="alert('$DHL Coming Soon!')">Learn More →</button>
                 </div>
 
+                <!-- $TIP -->
                 <div class="token-card">
                     <div class="token-card-header">
                         <span class="token-icon">💵</span>
                         <div>
-                            <h3>$TIP</h3>
+                            <h3 onclick="window.open('https://goldtaxi.github.io/tip/', '_blank')" style="cursor:pointer;">$TIP</h3>
                             <span class="token-tag">Tips</span>
                         </div>
                     </div>
@@ -145,17 +202,25 @@
                         <span>📦 50Q</span>
                         <span>📈 $500B</span>
                     </div>
+                    <div class="token-address">
+                        <span class="label">Address:</span>
+                        <span class="address" onclick="window.open('https://solscan.io/token/83XK5SZ8R6hKUyvdLTxQGG6X6tuDAWYoE2KZTxiiPSCP', '_blank')">
+                            83XK5SZ8R6hKUyvdLTxQGG6X6tuDAWYoE2KZTxiiPSCP
+                        </span>
+                    </div>
                     <div class="token-features">
                         <span class="feature-badge">✔ Cheapest</span>
                         <span class="feature-badge">✔ Acceleration</span>
                     </div>
+                    <button class="btn-stake" onclick="window.open('https://goldtaxi.github.io/tip/', '_blank')">Learn More →</button>
                 </div>
 
+                <!-- $FDX -->
                 <div class="token-card">
                     <div class="token-card-header">
                         <span class="token-icon">⛽</span>
                         <div>
-                            <h3>$FDX</h3>
+                            <h3 onclick="window.open('https://goldtaxi.github.io/fdx/', '_blank')" style="cursor:pointer;">$FDX</h3>
                             <span class="token-tag">2030</span>
                         </div>
                     </div>
@@ -165,18 +230,26 @@
                         <span>📦 10Q</span>
                         <span>📈 $500B</span>
                     </div>
+                    <div class="token-address">
+                        <span class="label">Address:</span>
+                        <span class="address" onclick="window.open('https://solscan.io/token/zLQsaR3fvH1caciELSbVwSiYVkYMLpS4u8xt5PkrQ6t', '_blank')">
+                            zLQsaR3fvH1caciELSbVwSiYVkYMLpS4u8xt5PkrQ6t
+                        </span>
+                    </div>
                     <div class="token-features">
                         <span class="feature-badge">⏳ Future</span>
                         <span class="feature-badge">♻️ Carbon</span>
                         <span class="feature-badge">🚛 B2B</span>
                     </div>
+                    <button class="btn-stake" onclick="window.open('https://goldtaxi.github.io/fdx/', '_blank')">Learn More →</button>
                 </div>
 
+                <!-- $DIDI -->
                 <div class="token-card">
                     <div class="token-card-header">
                         <span class="token-icon">🇨🇳</span>
                         <div>
-                            <h3>$DIDI</h3>
+                            <h3 onclick="window.open('https://goldtaxi.github.io/didi', '_blank')" style="cursor:pointer;">$DIDI</h3>
                             <span class="token-tag">China</span>
                         </div>
                     </div>
@@ -186,18 +259,26 @@
                         <span>📦 10Q</span>
                         <span>📈 $500B</span>
                     </div>
+                    <div class="token-address">
+                        <span class="label">Address:</span>
+                        <span class="address" onclick="window.open('https://solscan.io/token/E3JyYE8JKTYVYC8Sm558yCDLQBbwv28JJZMm89Gr7MHi', '_blank')">
+                            E3JyYE8JKTYVYC8Sm558yCDLQBbwv28JJZMm89Gr7MHi
+                        </span>
+                    </div>
                     <div class="token-features">
                         <span class="feature-badge">🌏 East Asia</span>
                         <span class="feature-badge">🚗 Car Sharing</span>
                         <span class="feature-badge">🏮 Culture</span>
                     </div>
+                    <button class="btn-stake" onclick="window.open('https://goldtaxi.github.io/didi', '_blank')">Learn More →</button>
                 </div>
 
+                <!-- $GRAB -->
                 <div class="token-card">
                     <div class="token-card-header">
                         <span class="token-icon">🇸🇬</span>
                         <div>
-                            <h3>$GRAB</h3>
+                            <h3 onclick="window.open('https://goldtaxi.github.io/grab/', '_blank')" style="cursor:pointer;">$GRAB</h3>
                             <span class="token-tag">ASEAN</span>
                         </div>
                     </div>
@@ -207,65 +288,18 @@
                         <span>📦 10Q</span>
                         <span>📈 $500B</span>
                     </div>
+                    <div class="token-address">
+                        <span class="label">Address:</span>
+                        <span class="address" onclick="window.open('https://solscan.io/token/oH7Mwpzn411AWK8gAsaTCNPsGC1pxP8VAwbiTQ1tHAc', '_blank')">
+                            oH7Mwpzn411AWK8gAsaTCNPsGC1pxP8VAwbiTQ1tHAc
+                        </span>
+                    </div>
                     <div class="token-features">
                         <span class="feature-badge">🌏 ASEAN</span>
                         <span class="feature-badge">🏨 Hotels</span>
                         <span class="feature-badge">🛵 Delivery</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="ecosystem-map">
-        <div class="container">
-            <h2 class="section-title">🗺️ Ecosystem <span class="highlight">Map</span></h2>
-            <div class="map-container">
-                <div class="map-node main">🚖 $TAXI</div>
-                <div class="map-connections">
-                    <span class="conn-arrow">⬇️</span>
-                </div>
-                <div class="map-nodes">
-                    <div class="map-node sub">🚘 $UBER</div>
-                    <div class="map-node sub">📦 $DHL</div>
-                    <div class="map-node sub">💵 $TIP</div>
-                    <div class="map-node sub">⛽ $FDX</div>
-                    <div class="map-node sub">🇨🇳 $DIDI</div>
-                    <div class="map-node sub">🇸🇬 $GRAB</div>
-                </div>
-                <div class="map-rates">
-                    <span class="rate-item">$TAXI → $UBER (1:2)</span>
-                    <span class="rate-item">$TAXI → $DIDI (1:2)</span>
-                    <span class="rate-item">$TAXI → $GRAB (1:2)</span>
-                    <span class="rate-item">$TIP → $UBER (10:1)</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="regional-features">
-        <div class="container">
-            <h2 class="section-title">🌏 Regional <span class="highlight">Tokens</span></h2>
-            <div class="regional-grid">
-                <div class="regional-card">
-                    <div class="regional-icon">🇨🇳</div>
-                    <h3>$DIDI — East Asia</h3>
-                    <p>China, Japan, Korea, Taiwan</p>
-                    <div class="regional-details">
-                        <span>🚗 Taxi & Car Sharing</span>
-                        <span>📦 Delivery</span>
-                        <span>🏮 Local Integration</span>
-                    </div>
-                </div>
-                <div class="regional-card">
-                    <div class="regional-icon">🇸🇬</div>
-                    <h3>$GRAB — Southeast Asia</h3>
-                    <p>Singapore, Malaysia, Thailand, Vietnam, Indonesia</p>
-                    <div class="regional-details">
-                        <span>🛵 Taxi & Delivery</span>
-                        <span>🏨 Hotels & Tours</span>
-                        <span>🌴 ASEAN Integration</span>
-                    </div>
+                    <button class="btn-stake" onclick="window.open('https://goldtaxi.github.io/grab/', '_blank')">Learn More →</button>
                 </div>
             </div>
         </div>
@@ -288,18 +322,18 @@
                 </div>
                 <div class="footer-col">
                     <h4>Tokens</h4>
-                    <a href="#">$TAXI</a>
-                    <a href="#">$UBER</a>
-                    <a href="#">$DHL</a>
-                    <a href="#">$TIP</a>
-                    <a href="#">$FDX</a>
-                    <a href="#">$DIDI</a>
-                    <a href="#">$GRAB</a>
+                    <a href="#" onclick="window.open('https://solscan.io/token/3YBgdJkNi41H4AtqNtywFdTx11H5CmDvt8qB3QHxninS', '_blank')">$TAXI</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/uber/', '_blank')">$UBER</a>
+                    <a href="#" onclick="window.open('#', '_blank')">$DHL</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/tip/', '_blank')">$TIP</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/fdx/', '_blank')">$FDX</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/didi', '_blank')">$DIDI</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/grab/', '_blank')">$GRAB</a>
                 </div>
                 <div class="footer-col">
                     <h4>Resources</h4>
-                    <a href="#">Documentation</a>
-                    <a href="#">Whitepaper</a>
+                    <a href="#" onclick="window.open('https://docs.goldtaxi.io', '_blank')">Documentation</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.io/whitepaper', '_blank')">Whitepaper</a>
                 </div>
                 <div class="footer-col">
                     <h4>Community</h4>
