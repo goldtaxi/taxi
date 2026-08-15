@@ -1,4 +1,4 @@
-// Подключение кошелька
+// Connect Wallet
 document.querySelectorAll('#connectWallet, #connectWallet2, #connectWallet3').forEach(btn => {
     btn.addEventListener('click', async () => {
         try {
@@ -7,47 +7,47 @@ document.querySelectorAll('#connectWallet, #connectWallet2, #connectWallet3').fo
                 btn.textContent = `🟢 ${response.publicKey.toString().slice(0, 4)}...${response.publicKey.toString().slice(-4)}`;
                 btn.style.background = '#00c853';
                 btn.style.color = '#fff';
-                console.log('Кошелек подключен:', response.publicKey.toString());
+                console.log('Wallet connected:', response.publicKey.toString());
             } else {
                 window.open('https://phantom.app/', '_blank');
-                alert('Установи Phantom Wallet!');
+                alert('Please install Phantom Wallet!');
             }
         } catch (error) {
-            console.error('Ошибка подключения:', error);
+            console.error('Connection error:', error);
         }
     });
 });
 
-// Копирование адреса
+// Copy Address
 function copyAddress(element) {
     const text = element.textContent;
     navigator.clipboard.writeText(text).then(() => {
         const original = element.textContent;
-        element.textContent = '✅ Скопировано!';
+        element.textContent = '✅ Copied!';
         setTimeout(() => {
             element.textContent = original;
         }, 2000);
     });
 }
 
-// Кнопка "Купить $TAXI"
+// Buy Button
 document.getElementById('buyTaxi')?.addEventListener('click', () => {
-    alert('🚀 Переход на страницу покупки $TAXI\n\nАдрес: 3YBgdJkNi41H4AtqNtywFdTx11H5CmDvt8qB3QHxninS\nПул: Meteora');
+    alert('🚀 Buy $TAXI\n\nAddress: 3YBgdJkNi41H4AtqNtywFdTx11H5CmDvt8qB3QHxninS\nPool: Meteora');
 });
 
-// Кнопка "Узнать больше"
+// Learn More
 document.getElementById('learnMore')?.addEventListener('click', () => {
     window.location.href = 'ecosystem.html';
 });
 
-// Кнопки "Торговать" в таблице
+// Trade Buttons
 document.querySelectorAll('.btn-table:not(.disabled)').forEach(btn => {
     btn.addEventListener('click', () => {
-        alert('🔄 Переход к торговле токеном\n\nСкоро будет доступно на DexScreener и Meteora!');
+        alert('🔄 Trading coming soon on DexScreener and Meteora!');
     });
 });
 
-// Анимация для карточек при скролле
+// Scroll Animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -69,13 +69,13 @@ document.querySelectorAll('.feature-card, .token-card, .exchange-card, .stat-car
     observer.observe(el);
 });
 
-// Обновление цен (симуляция)
+// Price Updates
 function updatePrices() {
     const priceElements = document.querySelectorAll('.current-price, .stat-number');
     priceElements.forEach(el => {
         if (el.textContent.includes('$')) {
             const base = parseFloat(el.textContent.replace(/[$,]/g, ''));
-            if (!isNaN(base)) {
+            if (!isNaN(base) && base > 0) {
                 const change = (Math.random() - 0.45) * 0.05;
                 const newPrice = base * (1 + change);
                 el.textContent = '$' + newPrice.toFixed(6);
@@ -86,14 +86,15 @@ function updatePrices() {
 
 setInterval(updatePrices, 5000);
 
-// Консольное приветствие
-console.log('🚖 $TAXI - Gold Taxi на Solana');
-console.log('📊 Экосистема из 7 токенов');
-console.log('🔗 Адрес: 3YBgdJkNi41H4AtqNtywFdTx11H5CmDvt8qB3QHxninS');
-console.log('🌐 Сайт: https://goldtaxi.github.io/taxi/');
-console.log('💪 Построено на Solana Token-2022');
+// Console
+console.log('🚖 $TAXI - Gold Taxi on Solana');
+console.log('📊 7 Token Ecosystem');
+console.log('🔗 Address: 3YBgdJkNi41H4AtqNtywFdTx11H5CmDvt8qB3QHxninS');
+console.log('🌐 https://goldtaxi.github.io/taxi/');
+console.log('💪 Built on Solana Token-2022');
 
-// Добавляем дату в футер
+// Footer Year
 document.querySelectorAll('.footer-bottom span:last-child').forEach(el => {
-    el.textContent = `Built on Solana 🚀 ${new Date().getFullYear()}`;
+    const year = new Date().getFullYear();
+    el.textContent = `Built on Solana 🚀 ${year}`;
 });
