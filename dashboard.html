@@ -5,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$TAXI Dashboard - Live Stats</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚖</text></svg>">
+    <link rel="icon" href="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png">
 </head>
 <body>
+    <!-- БЕГУЩАЯ СТРОКА #1 -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span>📊 $TAXI DASHBOARD — LIVE STATS 📊</span>
+            <span>💰 MARKET CAP: $500B 💰</span>
+            <span>👥 125,847 HOLDERS 👥</span>
+            <span>💧 TVL: $2.3B 💧</span>
+            <span>📈 24H VOLUME: $1.25B 📈</span>
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png" alt="$TAXI" height="40" style="border-radius: 50%;">
+                <img src="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png" alt="$TAXI" height="45" style="border-radius: 50%;">
                 <span class="logo-text">$TAXI</span>
             </div>
             <div class="nav-links">
@@ -43,6 +54,18 @@
             </div>
         </div>
     </nav>
+
+    <!-- ЛЕТАЮЩИЕ ПРЕДМЕТЫ -->
+    <div class="floating-objects">
+        <div class="float-coin">📊</div>
+        <div class="float-coin">💰</div>
+        <div class="float-coin">💎</div>
+        <div class="float-coin">⭐</div>
+        <div class="float-coin">🚀</div>
+        <div class="float-coin">🔥</div>
+        <div class="float-coin">🏆</div>
+        <div class="float-coin">📈</div>
+    </div>
 
     <section class="dashboard-hero">
         <div class="container">
@@ -90,6 +113,18 @@
         </div>
     </section>
 
+    <!-- БЕГУЩАЯ СТРОКА #2 -->
+    <div class="ticker-wrap ticker-secondary">
+        <div class="ticker">
+            <span>🔥 $TIP: +15.3% 24H GAIN 🔥</span>
+            <span>📊 $TAXI: $0.000112 📊</span>
+            <span>🚘 $UBER: $0.000056 🚘</span>
+            <span>📦 $DHL: $0.000052 📦</span>
+            <span>🇨🇳 $DIDI: $0.000053 🇨🇳</span>
+            <span>🇸🇬 $GRAB: $0.000051 🇸🇬</span>
+        </div>
+    </div>
+
     <section class="all-tokens">
         <div class="container">
             <h2 class="section-title">All Ecosystem <span class="highlight">Tokens</span></h2>
@@ -102,53 +137,53 @@
                     <span>Action</span>
                 </div>
                 <div class="table-row">
-                    <span class="token-name">🚖 $TAXI</span>
+                    <span class="token-name" onclick="window.open('https://solscan.io/token/3YBgdJkNi41H4AtqNtywFdTx11H5CmDvt8qB3QHxninS', '_blank')" style="cursor:pointer;">🚖 $TAXI</span>
                     <span>$0.000112</span>
                     <span class="positive">+12.5%</span>
                     <span>$500B</span>
                     <button class="btn-table" onclick="window.location.href='staking.html'">Stake</button>
                 </div>
                 <div class="table-row">
-                    <span class="token-name">🚘 $UBER</span>
+                    <span class="token-name" onclick="window.open('https://goldtaxi.github.io/uber/', '_blank')" style="cursor:pointer;">🚘 $UBER</span>
                     <span>$0.000056</span>
                     <span class="positive">+8.7%</span>
                     <span>$500B</span>
-                    <button class="btn-table" onclick="window.location.href='staking.html'">Stake</button>
+                    <button class="btn-table" onclick="window.open('https://goldtaxi.github.io/uber/', '_blank')">Learn</button>
                 </div>
                 <div class="table-row">
                     <span class="token-name">📦 $DHL</span>
                     <span>$0.000052</span>
                     <span class="positive">+5.2%</span>
                     <span>$500B</span>
-                    <button class="btn-table" onclick="window.location.href='staking.html'">Stake</button>
+                    <button class="btn-table" onclick="alert('$DHL Coming Soon!')">Soon</button>
                 </div>
                 <div class="table-row">
-                    <span class="token-name">💵 $TIP</span>
+                    <span class="token-name" onclick="window.open('https://goldtaxi.github.io/tip/', '_blank')" style="cursor:pointer;">💵 $TIP</span>
                     <span>$0.000011</span>
                     <span class="positive">+15.3%</span>
                     <span>$500B</span>
-                    <button class="btn-table" onclick="window.location.href='staking.html'">Stake</button>
+                    <button class="btn-table" onclick="window.open('https://goldtaxi.github.io/tip/', '_blank')">Learn</button>
                 </div>
                 <div class="table-row">
-                    <span class="token-name">⛽ $FDX</span>
+                    <span class="token-name" onclick="window.open('https://goldtaxi.github.io/fdx/', '_blank')" style="cursor:pointer;">⛽ $FDX</span>
                     <span>$0.000050</span>
                     <span class="neutral">0.0%</span>
                     <span>$500B</span>
-                    <button class="btn-table disabled">Soon</button>
+                    <button class="btn-table" onclick="window.open('https://goldtaxi.github.io/fdx/', '_blank')">Learn</button>
                 </div>
                 <div class="table-row">
-                    <span class="token-name">🇨🇳 $DIDI</span>
+                    <span class="token-name" onclick="window.open('https://goldtaxi.github.io/didi', '_blank')" style="cursor:pointer;">🇨🇳 $DIDI</span>
                     <span>$0.000053</span>
                     <span class="positive">+6.8%</span>
                     <span>$500B</span>
-                    <button class="btn-table" onclick="window.location.href='staking.html'">Stake</button>
+                    <button class="btn-table" onclick="window.open('https://goldtaxi.github.io/didi', '_blank')">Learn</button>
                 </div>
                 <div class="table-row">
-                    <span class="token-name">🇸🇬 $GRAB</span>
+                    <span class="token-name" onclick="window.open('https://goldtaxi.github.io/grab/', '_blank')" style="cursor:pointer;">🇸🇬 $GRAB</span>
                     <span>$0.000051</span>
                     <span class="positive">+4.9%</span>
                     <span>$500B</span>
-                    <button class="btn-table" onclick="window.location.href='staking.html'">Stake</button>
+                    <button class="btn-table" onclick="window.open('https://goldtaxi.github.io/grab/', '_blank')">Learn</button>
                 </div>
             </div>
         </div>
@@ -167,7 +202,7 @@
                     <div class="balance-item"><span class="balance-label">$DIDI</span><span class="balance-amount">0.00</span></div>
                     <div class="balance-item"><span class="balance-label">$GRAB</span><span class="balance-amount">0.00</span></div>
                 </div>
-                <button class="btn-primary-small" onclick="connectWallet()">Connect Wallet</button>
+                <button class="btn-primary-small" onclick="alert('Please connect Phantom wallet')">Connect Wallet</button>
             </div>
         </div>
     </section>
@@ -189,18 +224,18 @@
                 </div>
                 <div class="footer-col">
                     <h4>Tokens</h4>
-                    <a href="#">$TAXI</a>
-                    <a href="#">$UBER</a>
-                    <a href="#">$DHL</a>
-                    <a href="#">$TIP</a>
-                    <a href="#">$FDX</a>
-                    <a href="#">$DIDI</a>
-                    <a href="#">$GRAB</a>
+                    <a href="#" onclick="window.open('https://solscan.io/token/3YBgdJkNi41H4AtqNtywFdTx11H5CmDvt8qB3QHxninS', '_blank')">$TAXI</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/uber/', '_blank')">$UBER</a>
+                    <a href="#" onclick="window.open('#', '_blank')">$DHL</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/tip/', '_blank')">$TIP</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/fdx/', '_blank')">$FDX</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/didi', '_blank')">$DIDI</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/grab/', '_blank')">$GRAB</a>
                 </div>
                 <div class="footer-col">
                     <h4>Resources</h4>
-                    <a href="#">Documentation</a>
-                    <a href="#">Whitepaper</a>
+                    <a href="#" onclick="window.open('https://docs.goldtaxi.io', '_blank')">Documentation</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.io/whitepaper', '_blank')">Whitepaper</a>
                 </div>
                 <div class="footer-col">
                     <h4>Community</h4>
