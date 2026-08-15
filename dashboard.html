@@ -11,21 +11,23 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <span class="logo-icon">🚖</span>
+                <img src="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png" alt="$TAXI" height="40" style="border-radius: 50%;">
                 <span class="logo-text">$TAXI</span>
             </div>
             <div class="nav-links">
-                <a href="index.html" data-i18n="nav_home">Home</a>
-                <a href="ecosystem.html" data-i18n="nav_ecosystem">Ecosystem</a>
-                <a href="dashboard.html" class="active" data-i18n="nav_dashboard">Dashboard</a>
+                <a href="index.html">Home</a>
+                <a href="ecosystem.html">Ecosystem</a>
+                <a href="staking.html">Staking</a>
+                <a href="analytics.html">Analytics</a>
+                <a href="dashboard.html" class="active">Dashboard</a>
                 <div class="language-selector">
                     <button class="lang-btn" onclick="toggleLanguages()">
                         🌍 <span id="currentLangLabel">EN</span>
                     </button>
                     <div class="lang-dropdown" id="langDropdown">
                         <button onclick="setLanguage('en')">🇬🇧 English</button>
-                        <button onclick="setLanguage('zh-CN')">🇨🇳 中文 (简体)</button>
-                        <button onclick="setLanguage('zh-TW')">🇹🇼 中文 (繁體)</button>
+                        <button onclick="setLanguage('zh-CN')">🇨🇳 中文</button>
+                        <button onclick="setLanguage('zh-TW')">🇹🇼 繁體中文</button>
                         <button onclick="setLanguage('ja')">🇯🇵 日本語</button>
                         <button onclick="setLanguage('ko')">🇰🇷 한국어</button>
                         <button onclick="setLanguage('vi')">🇻🇳 Tiếng Việt</button>
@@ -44,8 +46,8 @@
 
     <section class="dashboard-hero">
         <div class="container">
-            <h1><span data-i18n="dash_title">📊 $TAXI</span> <span class="gradient-text" data-i18n="dash_title2">Dashboard</span></h1>
-            <p data-i18n="dash_sub">Real-time prices, volumes, and ecosystem statistics</p>
+            <h1>📊 $TAXI <span class="gradient-text">Dashboard</span></h1>
+            <p>Real-time prices, volumes, and ecosystem statistics</p>
         </div>
     </section>
 
@@ -55,23 +57,23 @@
                 <div class="stat-card">
                     <div class="stat-card-icon">💰</div>
                     <div class="stat-card-content">
-                        <span class="stat-label" data-i18n="stat_mcap">Market Cap</span>
-                        <span class="stat-number">$500,000,000,000</span>
+                        <span class="stat-label">Market Cap</span>
+                        <span class="stat-number">$500B</span>
                         <span class="stat-change positive">+12.5%</span>
                     </div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-card-icon">📈</div>
                     <div class="stat-card-content">
-                        <span class="stat-label" data-i18n="stat_24h">24h Volume</span>
-                        <span class="stat-number">$1,250,000,000</span>
+                        <span class="stat-label">24h Volume</span>
+                        <span class="stat-number">$1.25B</span>
                         <span class="stat-change positive">+8.3%</span>
                     </div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-card-icon">👥</div>
                     <div class="stat-card-content">
-                        <span class="stat-label" data-i18n="stat_holders">Holders</span>
+                        <span class="stat-label">Holders</span>
                         <span class="stat-number">125,847</span>
                         <span class="stat-change positive">+2,341</span>
                     </div>
@@ -79,8 +81,8 @@
                 <div class="stat-card">
                     <div class="stat-card-icon">💧</div>
                     <div class="stat-card-content">
-                        <span class="stat-label" data-i18n="stat_tvl">TVL</span>
-                        <span class="stat-number">$2,300,000,000</span>
+                        <span class="stat-label">TVL</span>
+                        <span class="stat-number">$2.3B</span>
                         <span class="stat-change positive">+15.7%</span>
                     </div>
                 </div>
@@ -88,96 +90,65 @@
         </div>
     </section>
 
-    <section class="price-chart">
-        <div class="container">
-            <div class="chart-container">
-                <h3 data-i18n="chart_title">📈 $TAXI Price</h3>
-                <div class="chart-placeholder">
-                    <div class="chart-bars">
-                        <div class="chart-bar" style="height: 30%"></div>
-                        <div class="chart-bar" style="height: 45%"></div>
-                        <div class="chart-bar" style="height: 25%"></div>
-                        <div class="chart-bar" style="height: 60%"></div>
-                        <div class="chart-bar" style="height: 40%"></div>
-                        <div class="chart-bar" style="height: 75%"></div>
-                        <div class="chart-bar" style="height: 55%"></div>
-                        <div class="chart-bar" style="height: 85%"></div>
-                        <div class="chart-bar" style="height: 65%"></div>
-                        <div class="chart-bar" style="height: 90%"></div>
-                        <div class="chart-bar" style="height: 70%"></div>
-                        <div class="chart-bar" style="height: 95%"></div>
-                        <div class="chart-bar" style="height: 80%"></div>
-                        <div class="chart-bar" style="height: 100%"></div>
-                        <div class="chart-bar" style="height: 88%"></div>
-                    </div>
-                </div>
-                <div class="chart-price">
-                    <span class="current-price">$0.000112</span>
-                    <span class="price-change positive">+12.5%</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="all-tokens">
         <div class="container">
-            <h2 class="section-title"><span data-i18n="all_tokens">All Ecosystem</span> <span class="highlight" data-i18n="all_tokens2">Tokens</span></h2>
+            <h2 class="section-title">All Ecosystem <span class="highlight">Tokens</span></h2>
             <div class="tokens-table">
                 <div class="table-header">
-                    <span data-i18n="token_col">Token</span>
-                    <span data-i18n="price_col">Price</span>
-                    <span data-i18n="change_col">24h %</span>
-                    <span data-i18n="cap_col">Market Cap</span>
-                    <span data-i18n="action_col">Action</span>
+                    <span>Token</span>
+                    <span>Price</span>
+                    <span>24h %</span>
+                    <span>Market Cap</span>
+                    <span>Action</span>
                 </div>
                 <div class="table-row">
                     <span class="token-name">🚖 $TAXI</span>
                     <span>$0.000112</span>
                     <span class="positive">+12.5%</span>
                     <span>$500B</span>
-                    <button class="btn-table" data-i18n="trade_btn">Trade</button>
+                    <button class="btn-table" onclick="window.location.href='staking.html'">Stake</button>
                 </div>
                 <div class="table-row">
                     <span class="token-name">🚘 $UBER</span>
                     <span>$0.000056</span>
                     <span class="positive">+8.7%</span>
                     <span>$500B</span>
-                    <button class="btn-table" data-i18n="trade_btn">Trade</button>
+                    <button class="btn-table" onclick="window.location.href='staking.html'">Stake</button>
                 </div>
                 <div class="table-row">
                     <span class="token-name">📦 $DHL</span>
                     <span>$0.000052</span>
                     <span class="positive">+5.2%</span>
                     <span>$500B</span>
-                    <button class="btn-table" data-i18n="trade_btn">Trade</button>
+                    <button class="btn-table" onclick="window.location.href='staking.html'">Stake</button>
                 </div>
                 <div class="table-row">
                     <span class="token-name">💵 $TIP</span>
                     <span>$0.000011</span>
                     <span class="positive">+15.3%</span>
                     <span>$500B</span>
-                    <button class="btn-table" data-i18n="trade_btn">Trade</button>
+                    <button class="btn-table" onclick="window.location.href='staking.html'">Stake</button>
                 </div>
                 <div class="table-row">
                     <span class="token-name">⛽ $FDX</span>
                     <span>$0.000050</span>
                     <span class="neutral">0.0%</span>
                     <span>$500B</span>
-                    <button class="btn-table disabled" data-i18n="soon_btn">Soon</button>
+                    <button class="btn-table disabled">Soon</button>
                 </div>
                 <div class="table-row">
                     <span class="token-name">🇨🇳 $DIDI</span>
                     <span>$0.000053</span>
                     <span class="positive">+6.8%</span>
                     <span>$500B</span>
-                    <button class="btn-table" data-i18n="trade_btn">Trade</button>
+                    <button class="btn-table" onclick="window.location.href='staking.html'">Stake</button>
                 </div>
                 <div class="table-row">
                     <span class="token-name">🇸🇬 $GRAB</span>
                     <span>$0.000051</span>
                     <span class="positive">+4.9%</span>
                     <span>$500B</span>
-                    <button class="btn-table" data-i18n="trade_btn">Trade</button>
+                    <button class="btn-table" onclick="window.location.href='staking.html'">Stake</button>
                 </div>
             </div>
         </div>
@@ -186,38 +157,17 @@
     <section class="wallet-info">
         <div class="container">
             <div class="wallet-card">
-                <h3 data-i18n="wallet_title">🔐 Your Wallet</h3>
+                <h3>🔐 Your Wallet</h3>
                 <div class="wallet-balance">
-                    <div class="balance-item">
-                        <span class="balance-label">$TAXI</span>
-                        <span class="balance-amount">0.00</span>
-                    </div>
-                    <div class="balance-item">
-                        <span class="balance-label">$UBER</span>
-                        <span class="balance-amount">0.00</span>
-                    </div>
-                    <div class="balance-item">
-                        <span class="balance-label">$DHL</span>
-                        <span class="balance-amount">0.00</span>
-                    </div>
-                    <div class="balance-item">
-                        <span class="balance-label">$TIP</span>
-                        <span class="balance-amount">0.00</span>
-                    </div>
-                    <div class="balance-item">
-                        <span class="balance-label">$FDX</span>
-                        <span class="balance-amount">0.00</span>
-                    </div>
-                    <div class="balance-item">
-                        <span class="balance-label">$DIDI</span>
-                        <span class="balance-amount">0.00</span>
-                    </div>
-                    <div class="balance-item">
-                        <span class="balance-label">$GRAB</span>
-                        <span class="balance-amount">0.00</span>
-                    </div>
+                    <div class="balance-item"><span class="balance-label">$TAXI</span><span class="balance-amount">0.00</span></div>
+                    <div class="balance-item"><span class="balance-label">$UBER</span><span class="balance-amount">0.00</span></div>
+                    <div class="balance-item"><span class="balance-label">$DHL</span><span class="balance-amount">0.00</span></div>
+                    <div class="balance-item"><span class="balance-label">$TIP</span><span class="balance-amount">0.00</span></div>
+                    <div class="balance-item"><span class="balance-label">$FDX</span><span class="balance-amount">0.00</span></div>
+                    <div class="balance-item"><span class="balance-label">$DIDI</span><span class="balance-amount">0.00</span></div>
+                    <div class="balance-item"><span class="balance-label">$GRAB</span><span class="balance-amount">0.00</span></div>
                 </div>
-                <button class="btn-primary-small" data-i18n="connect_wallet">Connect Wallet</button>
+                <button class="btn-primary-small" onclick="connectWallet()">Connect Wallet</button>
             </div>
         </div>
     </section>
@@ -226,8 +176,11 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>$TAXI</h4>
-                    <p data-i18n="footer_desc">Decentralized taxi & delivery platform on Solana</p>
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
+                        <img src="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png" alt="$TAXI" height="30" style="border-radius:50%;">
+                        <h4 style="margin:0;">$TAXI</h4>
+                    </div>
+                    <p>Decentralized taxi & delivery platform on Solana</p>
                     <div class="social-links">
                         <a href="#">🐦 Twitter</a>
                         <a href="#">💬 Telegram</a>
@@ -235,7 +188,7 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4 data-i18n="footer_tokens">Tokens</h4>
+                    <h4>Tokens</h4>
                     <a href="#">$TAXI</a>
                     <a href="#">$UBER</a>
                     <a href="#">$DHL</a>
@@ -245,19 +198,19 @@
                     <a href="#">$GRAB</a>
                 </div>
                 <div class="footer-col">
-                    <h4 data-i18n="footer_resources">Resources</h4>
-                    <a href="#" data-i18n="footer_docs">Documentation</a>
-                    <a href="#" data-i18n="footer_whitepaper">Whitepaper</a>
-                    <a href="#" data-i18n="footer_github">GitHub</a>
+                    <h4>Resources</h4>
+                    <a href="#">Documentation</a>
+                    <a href="#">Whitepaper</a>
                 </div>
                 <div class="footer-col">
-                    <h4 data-i18n="footer_contact">Contact</h4>
-                    <a href="mailto:info@goldtaxi.io">info@goldtaxi.io</a>
-                    <a href="#" data-i18n="footer_partners">Partnership</a>
+                    <h4>Community</h4>
+                    <a href="#">Forum</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Events</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>© 2026 Gold Taxi. <span data-i18n="footer_rights">All rights reserved.</span></span>
+                <span>© 2026 Gold Taxi. All rights reserved.</span>
                 <span>Built on Solana 🚀</span>
             </div>
         </div>
