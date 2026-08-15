@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$TAXI Analytics - Live Data</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚖</text></svg>">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png" alt="$TAXI" height="40" style="border-radius: 50%;">
+                <span class="logo-text">$TAXI</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" data-i18n="nav_home">Home</a>
+                <a href="ecosystem.html" data-i18n="nav_ecosystem">Ecosystem</a>
+                <a href="staking.html">Staking</a>
+                <a href="analytics.html" class="active">Analytics</a>
+                <a href="dashboard.html" data-i18n="nav_dashboard">Dashboard</a>
+                <div class="language-selector">
+                    <button class="lang-btn" onclick="toggleLanguages()">
+                        🌍 <span id="currentLangLabel">EN</span>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <button onclick="setLanguage('en')">🇬🇧 English</button>
+                        <button onclick="setLanguage('zh-CN')">🇨🇳 中文</button>
+                        <button onclick="setLanguage('zh-TW')">🇹🇼 繁體中文</button>
+                        <button onclick="setLanguage('ja')">🇯🇵 日本語</button>
+                        <button onclick="setLanguage('ko')">🇰🇷 한국어</button>
+                        <button onclick="setLanguage('vi')">🇻🇳 Tiếng Việt</button>
+                        <button onclick="setLanguage('th')">🇹🇭 ภาษาไทย</button>
+                        <button onclick="setLanguage('ms')">🇲🇾 Bahasa Melayu</button>
+                        <button onclick="setLanguage('id')">🇮🇩 Bahasa Indonesia</button>
+                        <button onclick="setLanguage('es')">🇪🇸 Español</button>
+                        <button onclick="setLanguage('ru')">🇷🇺 Русский</button>
+                        <button onclick="setLanguage('ar')">🇸🇦 العربية</button>
+                    </div>
+                </div>
+                <button id="connectWalletAnalytics" class="wallet-btn">🔗 Connect</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="analytics-hero">
+        <div class="container">
+            <h1>📊 <span class="gradient-text">Analytics</span> Dashboard</h1>
+            <p>Real-time data, metrics, and insights for the $TAXI ecosystem</p>
+        </div>
+    </section>
+
+    <section class="analytics-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-icon">💰</div>
+                    <div class="stat-card-content">
+                        <span class="stat-label">Total Value Locked</span>
+                        <span class="stat-number">$3.42B</span>
+                        <span class="stat-change positive">+12.8%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">🔄</div>
+                    <div class="stat-card-content">
+                        <span class="stat-label">Daily Transactions</span>
+                        <span class="stat-number">1,847,293</span>
+                        <span class="stat-change positive">+23.1%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">👥</div>
+                    <div class="stat-card-content">
+                        <span class="stat-label">Active Wallets</span>
+                        <span class="stat-number">125,847</span>
+                        <span class="stat-change positive">+8.4%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">📈</div>
+                    <div class="stat-card-content">
+                        <span class="stat-label">Token Velocity</span>
+                        <span class="stat-number">2.4x</span>
+                        <span class="stat-change positive">+0.3x</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">🏦</div>
+                    <div class="stat-card-content">
+                        <span class="stat-label">Liquidity Pools</span>
+                        <span class="stat-number">14</span>
+                        <span class="stat-change positive">+2</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">💧</div>
+                    <div class="stat-card-content">
+                        <span class="stat-label">Pool Volume 24h</span>
+                        <span class="stat-number">$892M</span>
+                        <span class="stat-change positive">+18.2%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="analytics-charts">
+        <div class="container">
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Price History ($TAXI)</h3>
+                    <div class="chart-container-small">
+                        <div class="chart-bars">
+                            <div class="chart-bar" style="height:30%;"></div>
+                            <div class="chart-bar" style="height:45%;"></div>
+                            <div class="chart-bar" style="height:25%;"></div>
+                            <div class="chart-bar" style="height:60%;"></div>
+                            <div class="chart-bar" style="height:40%;"></div>
+                            <div class="chart-bar" style="height:75%;"></div>
+                            <div class="chart-bar" style="height:55%;"></div>
+                            <div class="chart-bar" style="height:85%;"></div>
+                            <div class="chart-bar" style="height:65%;"></div>
+                            <div class="chart-bar" style="height:90%;"></div>
+                            <div class="chart-bar" style="height:70%;"></div>
+                            <div class="chart-bar" style="height:95%;"></div>
+                            <div class="chart-bar" style="height:80%;"></div>
+                            <div class="chart-bar" style="height:100%;"></div>
+                            <div class="chart-bar" style="height:88%;"></div>
+                        </div>
+                    </div>
+                    <div class="chart-stats">
+                        <span>Current: $0.000112</span>
+                        <span class="positive">+12.5%</span>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Volume Distribution</h3>
+                    <div class="pie-chart-container">
+                        <div class="pie-chart">
+                            <div class="pie-slice" style="--p:35;--c:#f7931a;"></div>
+                            <div class="pie-slice" style="--p:25;--c:#9945FF;"></div>
+                            <div class="pie-slice" style="--p:20;--c:#00c853;"></div>
+                            <div class="pie-slice" style="--p:12;--c:#ffd700;"></div>
+                            <div class="pie-slice" style="--p:8;--c:#ff1744;"></div>
+                        </div>
+                    </div>
+                    <div class="pie-legend">
+                        <span><span style="color:#f7931a;">●</span> $TAXI 35%</span>
+                        <span><span style="color:#9945FF;">●</span> $UBER 25%</span>
+                        <span><span style="color:#00c853;">●</span> $DHL 20%</span>
+                        <span><span style="color:#ffd700;">●</span> $TIP 12%</span>
+                        <span><span style="color:#ff1744;">●</span> Others 8%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="analytics-table">
+        <div class="container">
+            <h2 class="section-title">📋 Token <span class="highlight">Metrics</span></h2>
+            <div class="metrics-table">
+                <div class="table-header">
+                    <span>Token</span>
+                    <span>Price</span>
+                    <span>24h Change</span>
+                    <span>Market Cap</span>
+                    <span>Volume</span>
+                    <span>Holders</span>
+                    <span>Liquidity</span>
+                </div>
+                <div class="table-row">
+                    <span class="token-name">🚖 $TAXI</span>
+                    <span>$0.000112</span>
+                    <span class="positive">+12.5%</span>
+                    <span>$500B</span>
+                    <span>$892M</span>
+                    <span>125,847</span>
+                    <span>$1.2B</span>
+                </div>
+                <div class="table-row">
+                    <span class="token-name">🚘 $UBER</span>
+                    <span>$0.000056</span>
+                    <span class="positive">+8.7%</span>
+                    <span>$500B</span>
+                    <span>$234M</span>
+                    <span>45,231</span>
+                    <span>$450M</span>
+                </div>
+                <div class="table-row">
+                    <span class="token-name">📦 $DHL</span>
+                    <span>$0.000052</span>
+                    <span class="positive">+5.2%</span>
+                    <span>$500B</span>
+                    <span>$189M</span>
+                    <span>32,847</span>
+                    <span>$380M</span>
+                </div>
+                <div class="table-row">
+                    <span class="token-name">💵 $TIP</span>
+                    <span>$0.000011</span>
+                    <span class="positive">+15.3%</span>
+                    <span>$500B</span>
+                    <span>$456M</span>
+                    <span>67,892</span>
+                    <span>$890M</span>
+                </div>
+                <div class="table-row">
+                    <span class="token-name">⛽ $FDX</span>
+                    <span>$0.000050</span>
+                    <span class="neutral">0.0%</span>
+                    <span>$500B</span>
+                    <span>$0</span>
+                    <span>12,345</span>
+                    <span>$0</span>
+                </div>
+                <div class="table-row">
+                    <span class="token-name">🇨🇳 $DIDI</span>
+                    <span>$0.000053</span>
+                    <span class="positive">+6.8%</span>
+                    <span>$500B</span>
+                    <span>$78M</span>
+                    <span>23,456</span>
+                    <span>$156M</span>
+                </div>
+                <div class="table-row">
+                    <span class="token-name">🇸🇬 $GRAB</span>
+                    <span>$0.000051</span>
+                    <span class="positive">+4.9%</span>
+                    <span>$500B</span>
+                    <span>$67M</span>
+                    <span>18,765</span>
+                    <span>$134M</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="analytics-insights">
+        <div class="container">
+            <h2 class="section-title">🧠 Market <span class="highlight">Insights</span></h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-icon">📈</div>
+                    <h3>Bullish Trend</h3>
+                    <p>$TAXI showing strong momentum with 45% increase in trading volume</p>
+                    <span class="insight-tag positive">+45%</span>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">👥</div>
+                    <h3>Growing Community</h3>
+                    <p>12,847 new holders joined in the last 7 days</p>
+                    <span class="insight-tag positive">+12.8K</span>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">💧</div>
+                    <h3>Liquidity Surge</h3>
+                    <p>Total liquidity increased by $340M this week</p>
+                    <span class="insight-tag positive">+$340M</span>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">🔄</div>
+                    <h3>High Velocity</h3>
+                    <p>Token velocity at 2.4x indicating healthy ecosystem activity</p>
+                    <span class="insight-tag positive">2.4x</span>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">🏆</div>
+                    <h3>Top Performer</h3>
+                    <p>$TIP showing 15.3% gain in 24h, leading the ecosystem</p>
+                    <span class="insight-tag positive">+15.3%</span>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">🌍</div>
+                    <h3>Global Expansion</h3>
+                    <p>$DIDI and $GRAB gaining traction in Asian markets</p>
+                    <span class="insight-tag positive">+6.8%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="analytics-news">
+        <div class="container">
+            <h2 class="section-title">📰 Ecosystem <span class="highlight">Updates</span></h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <span class="news-date">Dec 15, 2026</span>
+                    <h3>$TAXI Staking Pool Reaches 1.2B</h3>
+                    <p>Total staked $TAXI surpasses 1.2 billion tokens, marking a new milestone for the ecosystem</p>
+                </div>
+                <div class="news-card">
+                    <span class="news-date">Dec 14, 2026</span>
+                    <h3>New $UBER Integration</h3>
+                    <p>Business class feature now integrated with $UBER staking benefits</p>
+                </div>
+                <div class="news-card">
+                    <span class="news-date">Dec 13, 2026</span>
+                    <h3>$DIDI Regional Launch</h3>
+                    <p>$DIDI officially launched in China, Japan, and South Korea markets</p>
+                </div>
+                <div class="news-card">
+                    <span class="news-date">Dec 12, 2026</span>
+                    <h3>DAO Proposal #42 Passed</h3>
+                    <p>Community voted to expand to 12 new cities with 78% approval</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="analytics-prediction">
+        <div class="container">
+            <h2 class="section-title">🔮 Price <span class="highlight">Prediction</span></h2>
+            <div class="prediction-container">
+                <div class="prediction-card">
+                    <span class="prediction-period">Next 24h</span>
+                    <span class="prediction-price">$0.000120</span>
+                    <span class="prediction-change positive">+7.1%</span>
+                    <p>Bullish momentum expected to continue</p>
+                </div>
+                <div class="prediction-card">
+                    <span class="prediction-period">Next 7 Days</span>
+                    <span class="prediction-price">$0.000135</span>
+                    <span class="prediction-change positive">+20.5%</span>
+                    <p>Strong fundamentals driving growth</p>
+                </div>
+                <div class="prediction-card">
+                    <span class="prediction-period">Next 30 Days</span>
+                    <span class="prediction-price">$0.000160</span>
+                    <span class="prediction-change positive">+42.9%</span>
+                    <p>Ecosystem expansion fueling demand</p>
+                </div>
+                <div class="prediction-card">
+                    <span class="prediction-period">Next 90 Days</span>
+                    <span class="prediction-price">$0.000220</span>
+                    <span class="prediction-change positive">+96.4%</span>
+                    <p>Full ecosystem integration expected</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
+                        <img src="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png" alt="$TAXI" height="30" style="border-radius:50%;">
+                        <h4 style="margin:0;">$TAXI</h4>
+                    </div>
+                    <p data-i18n="footer_desc">Decentralized taxi & delivery platform on Solana</p>
+                    <div class="social-links">
+                        <a href="#">🐦 Twitter</a>
+                        <a href="#">💬 Telegram</a>
+                        <a href="#">📱 Discord</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer_tokens">Tokens</h4>
+                    <a href="#">$TAXI</a>
+                    <a href="#">$UBER</a>
+                    <a href="#">$DHL</a>
+                    <a href="#">$TIP</a>
+                    <a href="#">$FDX</a>
+                    <a href="#">$DIDI</a>
+                    <a href="#">$GRAB</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer_resources">Resources</h4>
+                    <a href="#" data-i18n="footer_docs">Documentation</a>
+                    <a href="#" data-i18n="footer_whitepaper">Whitepaper</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <a href="#">Forum</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Events</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Gold Taxi. <span data-i18n="footer_rights">All rights reserved.</span></span>
+                <span>Built on Solana 🚀</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="languages.js"></script>
+    <script>
+        // Real-time data simulation
+        function updateAnalytics() {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(el => {
+                const text = el.textContent;
+                if (text.includes('$') && !text.includes('$TAXI')) {
+                    const num = parseFloat(text.replace(/[$,B]/g, ''));
+                    if (!isNaN(num)) {
+                        const change = (Math.random() - 0.45) * 0.02;
+                        const newNum = num * (1 + change);
+                        el.textContent = '$' + newNum.toFixed(2) + 'B';
+                    }
+                }
+            });
+        }
+
+        setInterval(updateAnalytics, 3000);
+
+        // Price simulation
+        function updatePrice() {
+            const priceElement = document.querySelector('.chart-stats span:first-child');
+            if (priceElement) {
+                const current = parseFloat(priceElement.textContent.replace('Current: $', ''));
+                if (!isNaN(current)) {
+                    const change = (Math.random() - 0.45) * 0.003;
+                    const newPrice = current * (1 + change);
+                    priceElement.textContent = 'Current: $' + newPrice.toFixed(6);
+                    
+                    const changeElement = document.querySelector('.chart-stats span:last-child');
+                    if (changeElement) {
+                        const pct = ((newPrice - current) / current * 100);
+                        changeElement.textContent = (pct > 0 ? '+' : '') + pct.toFixed(1) + '%';
+                        changeElement.className = pct >= 0 ? 'positive' : 'negative';
+                    }
+                }
+            }
+        }
+
+        setInterval(updatePrice, 5000);
+
+        // Initial setup
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePrice();
+        });
+    </script>
+</body>
+</html>
