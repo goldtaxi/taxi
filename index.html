@@ -4,8 +4,923 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gold Taxi - Decentralized Taxi on Solana</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png">
+    <style>
+        /* ===== ПОЛНЫЙ CSS ВНУТРИ HTML ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #0a0a12;
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* БЕГУЩИЕ СТРОКИ */
+        .ticker-wrap {
+            background: linear-gradient(90deg, #0a0a2e, #1a1a4e, #0a0a2e);
+            padding: 12px 0;
+            border-bottom: 2px solid rgba(100, 149, 237, 0.3);
+            border-top: 2px solid rgba(100, 149, 237, 0.3);
+            overflow: hidden;
+            position: relative;
+            z-index: 999;
+        }
+
+        .ticker-wrap.ticker-secondary {
+            background: linear-gradient(90deg, #0a0a3e, #1a1a5e, #0a0a3e);
+            border-bottom: 2px solid rgba(70, 130, 255, 0.4);
+            border-top: 2px solid rgba(70, 130, 255, 0.4);
+        }
+
+        .ticker {
+            display: flex;
+            animation: ticker-scroll 25s linear infinite;
+            white-space: nowrap;
+        }
+
+        .ticker span {
+            color: #88ccff;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 0 40px;
+            text-shadow: 0 0 20px rgba(100, 149, 237, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .ticker span::before {
+            content: "✦ ";
+            color: #4a9eff;
+        }
+
+        @keyframes ticker-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-wrap:hover .ticker {
+            animation-duration: 15s;
+        }
+
+        /* НАВИГАЦИЯ */
+        .navbar {
+            background: rgba(10, 10, 18, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.08);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo img {
+            border-radius: 50%;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            height: 45px;
+            width: 45px;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffd700, #f7931a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.3s;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ffffff;
+            border-bottom-color: #ffd700;
+        }
+
+        /* ВЫБОР ЯЗЫКА */
+        .language-selector {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: #ffd700;
+        }
+
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            top: 45px;
+            right: 0;
+            background: #14141e;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            min-width: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            z-index: 1000;
+        }
+
+        .lang-dropdown.show {
+            display: block;
+        }
+
+        .lang-dropdown button {
+            display: block;
+            width: 100%;
+            padding: 10px 16px;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 14px;
+            text-align: left;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .lang-dropdown button:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .lang-dropdown::-webkit-scrollbar {
+            width: 4px;
+        }
+        .lang-dropdown::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        /* КНОПКА КОШЕЛЬКА */
+        .wallet-btn {
+            background: linear-gradient(135deg, #ffd700, #f7931a);
+            border: none;
+            color: #000000;
+            padding: 10px 24px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .wallet-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        /* ГЕРОЙ СЕКЦИЯ */
+        .hero {
+            padding: 80px 0 60px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(ellipse at 50% 0%, rgba(255, 215, 0, 0.06), transparent 70%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.12);
+            color: #ffd700;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+        }
+
+        .hero-title {
+            font-size: 58px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffd700, #f7931a, #ff6b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradientMove 4s ease-in-out infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: #aaa;
+            margin-bottom: 30px;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 35px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-divider {
+            width: 1px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ffd700, #f7931a);
+            color: #000000;
+            border: none;
+            padding: 16px 36px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px 36px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* ЛЕТАЮЩИЕ ПРЕДМЕТЫ */
+        .floating-objects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .float-coin {
+            position: absolute;
+            font-size: 32px;
+            opacity: 0.12;
+            animation: float-object 20s linear infinite;
+        }
+
+        .float-coin:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; font-size: 28px; }
+        .float-coin:nth-child(2) { top: 20%; right: 8%; animation-delay: 3s; font-size: 36px; }
+        .float-coin:nth-child(3) { bottom: 30%; left: 10%; animation-delay: 6s; font-size: 24px; }
+        .float-coin:nth-child(4) { bottom: 20%; right: 5%; animation-delay: 9s; font-size: 40px; }
+        .float-coin:nth-child(5) { top: 50%; left: 2%; animation-delay: 12s; font-size: 30px; }
+        .float-coin:nth-child(6) { top: 60%; right: 3%; animation-delay: 15s; font-size: 34px; }
+        .float-coin:nth-child(7) { top: 80%; left: 20%; animation-delay: 18s; font-size: 26px; }
+        .float-coin:nth-child(8) { top: 5%; left: 50%; animation-delay: 2s; font-size: 38px; }
+
+        @keyframes float-object {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.08; }
+            25% { transform: translate(50px, -80px) rotate(90deg) scale(1.2); opacity: 0.15; }
+            50% { transform: translate(-30px, -150px) rotate(180deg) scale(1); opacity: 0.12; }
+            75% { transform: translate(60px, -100px) rotate(270deg) scale(1.1); opacity: 0.15; }
+            100% { transform: translate(0, 0) rotate(360deg) scale(1); opacity: 0.08; }
+        }
+
+        /* TAXI CAR */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .taxi-car {
+            width: 320px;
+            height: 130px;
+            position: relative;
+            animation: drive 4s ease-in-out infinite;
+        }
+
+        .car-body {
+            width: 100%;
+            height: 65px;
+            background: linear-gradient(135deg, #ffd700, #f7931a);
+            border-radius: 25px 25px 0 0;
+            position: relative;
+            margin-top: 30px;
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
+        }
+
+        .car-body::before {
+            content: 'TAXI';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #000000;
+            font-weight: 900;
+            font-size: 22px;
+            letter-spacing: 6px;
+        }
+
+        .car-body::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            right: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .car-wheel {
+            width: 44px;
+            height: 44px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            border: 4px solid #333;
+            position: absolute;
+            bottom: -22px;
+        }
+
+        .car-wheel.front { right: 30px; }
+        .car-wheel.back { left: 30px; }
+
+        @keyframes drive {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(10px) rotate(1deg); }
+            75% { transform: translateX(-10px) rotate(-1deg); }
+        }
+
+        .floating-tokens {
+            position: absolute;
+            top: -80px;
+            right: -60px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .token-bubble {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #ffd700;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .token-bubble:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: scale(1.05);
+        }
+
+        /* ВЗРОСЛАЯ ЛОГИКА ПОКУПКИ */
+        .buy-reasons {
+            margin-top: 35px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .buy-reasons h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .reason-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .reason-item:hover {
+            background: rgba(255, 215, 0, 0.05);
+            transform: translateX(4px);
+        }
+
+        .reason-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .reason-item strong {
+            color: #ffffff;
+            font-size: 14px;
+            display: block;
+        }
+
+        .reason-item p {
+            color: #aaa;
+            font-size: 12px;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .buy-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .buy-actions .btn-primary,
+        .buy-actions .btn-secondary {
+            padding: 10px 20px;
+            font-size: 13px;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 100px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #ffffff;
+        }
+
+        .highlight {
+            color: #ffd700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 215, 0, 0.04);
+            border-color: rgba(255, 215, 0, 0.2);
+            transform: translateY(-8px);
+        }
+
+        .feature-icon {
+            font-size: 44px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* EXCHANGE */
+        .exchange {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .exchange-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .exchange-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .exchange-card:hover {
+            border-color: rgba(255, 215, 0, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .exchange-pair {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .exchange-rate {
+            font-size: 30px;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+
+        .exchange-desc {
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            padding: 80px 0;
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(247, 147, 26, 0.05));
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 30px;
+            padding: 60px;
+            text-align: center;
+        }
+
+        .cta-card h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .cta-card p {
+            color: #aaa;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* SOLANA BADGE */
+        .solana-badge {
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .badge-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .solana-icon {
+            font-size: 32px;
+            color: #9945FF;
+        }
+
+        .solana-text {
+            font-weight: 700;
+            color: #9945FF;
+        }
+
+        .badge-version {
+            background: rgba(153, 69, 255, 0.12);
+            color: #9945FF;
+            padding: 4px 14px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid rgba(153, 69, 255, 0.15);
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #888;
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #ffd700;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* АДАПТИВ */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-description {
+                margin: 0 auto 30px;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .hero-actions {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .floating-tokens {
+                display: none;
+            }
+            
+            .taxi-car {
+                width: 220px;
+                height: 90px;
+            }
+            
+            .car-body {
+                height: 45px;
+                margin-top: 20px;
+            }
+            
+            .car-body::before {
+                font-size: 16px;
+                letter-spacing: 4px;
+            }
+            
+            .car-body::after {
+                display: none;
+            }
+            
+            .car-wheel {
+                width: 30px;
+                height: 30px;
+                bottom: -15px;
+            }
+            
+            .car-wheel.front { right: 20px; }
+            .car-wheel.back { left: 20px; }
+            
+            .section-title {
+                font-size: 30px;
+            }
+            
+            .nav-links {
+                gap: 12px;
+            }
+            
+            .nav-links a {
+                font-size: 13px;
+            }
+            
+            .cta-card {
+                padding: 30px 20px;
+            }
+            
+            .cta-card h2 {
+                font-size: 28px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .lang-dropdown {
+                right: -60px;
+                min-width: 160px;
+            }
+            
+            .reasons-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .buy-actions {
+                flex-direction: column;
+            }
+            
+            .float-coin {
+                font-size: 20px !important;
+                opacity: 0.06;
+            }
+            
+            .ticker span {
+                font-size: 13px;
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links a:not(.active) {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .stat-value {
+                font-size: 20px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .buy-reasons {
+                padding: 15px;
+            }
+            
+            .reason-item {
+                padding: 8px;
+            }
+            
+            .ticker span {
+                font-size: 11px;
+                padding: 0 15px;
+            }
+        }
+
+        /* RTL SUPPORT */
+        [dir="rtl"] .nav-links {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .hero-actions {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .stat-item {
+            align-items: flex-end;
+        }
+
+        [dir="rtl"] .social-links {
+            flex-direction: row-reverse;
+        }
+    </style>
 </head>
 <body>
     <!-- БЕГУЩАЯ СТРОКА #1 -->
@@ -25,15 +940,15 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png" alt="$TAXI" height="45" style="border-radius: 50%;">
+                <img src="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png" alt="$TAXI">
                 <span class="logo-text">$TAXI</span>
             </div>
             <div class="nav-links">
-                <a href="index.html" class="active" data-i18n="nav_home">Home</a>
-                <a href="ecosystem.html" data-i18n="nav_ecosystem">Ecosystem</a>
+                <a href="index.html" class="active">Home</a>
+                <a href="ecosystem.html">Ecosystem</a>
                 <a href="staking.html">Staking</a>
                 <a href="analytics.html">Analytics</a>
-                <a href="dashboard.html" data-i18n="nav_dashboard">Dashboard</a>
+                <a href="dashboard.html">Dashboard</a>
                 <div class="language-selector">
                     <button class="lang-btn" onclick="toggleLanguages()">
                         🌍 <span id="currentLangLabel">EN</span>
@@ -73,36 +988,36 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-badge" data-i18n="hero_badge">🚀 Launch 2026</div>
+                <div class="hero-badge">🚀 Launch 2026</div>
                 <h1 class="hero-title">
-                    <span data-i18n="hero_title1">Decentralized</span><br>
-                    <span class="gradient-text" data-i18n="hero_title2">Taxi of the Future</span>
+                    Decentralized<br>
+                    <span class="gradient-text">Taxi of the Future</span>
                 </h1>
-                <p class="hero-description" data-i18n="hero_desc">
+                <p class="hero-description">
                     $TAXI — the first token on Solana for a global taxi, delivery, and logistics platform. 
                     Earn, vote, and get up to 50% discounts.
                 </p>
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-value">$500B</span>
-                        <span class="stat-label" data-i18n="stat_mcap">Market Cap</span>
+                        <span class="stat-label">Market Cap</span>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat-item">
                         <span class="stat-value">5Q</span>
-                        <span class="stat-label" data-i18n="stat_supply">Total Supply</span>
+                        <span class="stat-label">Total Supply</span>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat-item">
                         <span class="stat-value">$0.0001</span>
-                        <span class="stat-label" data-i18n="stat_price">Initial Price</span>
+                        <span class="stat-label">Initial Price</span>
                     </div>
                 </div>
                 <div class="hero-actions">
-                    <button class="btn-primary" onclick="window.location.href='staking.html'" data-i18n="btn_stake">
+                    <button class="btn-primary" onclick="window.location.href='staking.html'">
                         Start Staking →
                     </button>
-                    <button class="btn-secondary" onclick="window.location.href='ecosystem.html'" data-i18n="btn_explore">
+                    <button class="btn-secondary" onclick="window.location.href='ecosystem.html'">
                         Explore Ecosystem
                     </button>
                 </div>
@@ -304,7 +1219,258 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="languages.js"></script>
+    <script>
+        // ===== ЯЗЫКИ =====
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_ecosystem: "Ecosystem",
+                nav_dashboard: "Dashboard",
+                hero_badge: "🚀 Launch 2026",
+                hero_title1: "Decentralized",
+                hero_title2: "Taxi of the Future",
+                hero_desc: "$TAXI — the first token on Solana for a global taxi, delivery, and logistics platform. Earn, vote, and get up to 50% discounts.",
+                stat_mcap: "Market Cap",
+                stat_supply: "Total Supply",
+                stat_price: "Initial Price",
+                btn_stake: "Start Staking →",
+                btn_explore: "Explore Ecosystem"
+            },
+            'zh-CN': {
+                nav_home: "首页",
+                nav_ecosystem: "生态系统",
+                nav_dashboard: "仪表盘",
+                hero_badge: "🚀 2026年启动",
+                hero_title1: "去中心化",
+                hero_title2: "未来出租车",
+                hero_desc: "$TAXI — Solana上首个全球出租车、配送和物流平台代币。赚取收益、投票并获得高达50%的折扣。",
+                stat_mcap: "市值",
+                stat_supply: "总供应量",
+                stat_price: "初始价格",
+                btn_stake: "开始质押 →",
+                btn_explore: "探索生态系统"
+            },
+            'zh-TW': {
+                nav_home: "首頁",
+                nav_ecosystem: "生態系統",
+                nav_dashboard: "儀表板",
+                hero_badge: "🚀 2026年啟動",
+                hero_title1: "去中心化",
+                hero_title2: "未來計程車",
+                hero_desc: "$TAXI — Solana上首個全球計程車、配送和物流平台代幣。賺取收益、投票並獲得高達50%的折扣。",
+                stat_mcap: "市值",
+                stat_supply: "總供應量",
+                stat_price: "初始價格",
+                btn_stake: "開始質押 →",
+                btn_explore: "探索生態系統"
+            },
+            ja: {
+                nav_home: "ホーム",
+                nav_ecosystem: "エコシステム",
+                nav_dashboard: "ダッシュボード",
+                hero_badge: "🚀 2026年ローンチ",
+                hero_title1: "分散型",
+                hero_title2: "未来のタクシー",
+                hero_desc: "$TAXI — Solana上のグローバルタクシー、配達、物流プラットフォームの最初のトークン。収益を得て、投票し、最大50%の割引を受ける。",
+                stat_mcap: "時価総額",
+                stat_supply: "総供給量",
+                stat_price: "初期価格",
+                btn_stake: "ステーキングを始める →",
+                btn_explore: "エコシステムを探索"
+            },
+            ko: {
+                nav_home: "홈",
+                nav_ecosystem: "생태계",
+                nav_dashboard: "대시보드",
+                hero_badge: "🚀 2026년 출시",
+                hero_title1: "탈중앙화",
+                hero_title2: "미래의 택시",
+                hero_desc: "$TAXI — Solana의 글로벌 택시, 배달, 물류 플랫폼 최초의 토큰. 수익 창출, 투표, 최대 50% 할인 혜택.",
+                stat_mcap: "시가총액",
+                stat_supply: "총 공급량",
+                stat_price: "초기 가격",
+                btn_stake: "스테이킹 시작 →",
+                btn_explore: "생태계 탐색"
+            },
+            vi: {
+                nav_home: "Trang chủ",
+                nav_ecosystem: "Hệ sinh thái",
+                nav_dashboard: "Bảng điều khiển",
+                hero_badge: "🚀 Ra mắt 2026",
+                hero_title1: "Phi tập trung",
+                hero_title2: "Taxi của Tương lai",
+                hero_desc: "$TAXI — token đầu tiên trên Solana cho nền tảng taxi, giao hàng và logistics toàn cầu. Kiếm tiền, bỏ phiếu và nhận giảm giá lên đến 50%.",
+                stat_mcap: "Vốn hóa",
+                stat_supply: "Tổng cung",
+                stat_price: "Giá khởi điểm",
+                btn_stake: "Bắt đầu Stake →",
+                btn_explore: "Khám phá Hệ sinh thái"
+            },
+            th: {
+                nav_home: "หน้าหลัก",
+                nav_ecosystem: "ระบบนิเวศ",
+                nav_dashboard: "แดชบอร์ด",
+                hero_badge: "🚀 เปิดตัว 2026",
+                hero_title1: "แบบกระจายอำนาจ",
+                hero_title2: "แท็กซี่แห่งอนาคต",
+                hero_desc: "$TAXI — โทเค็นแรกบน Solana สำหรับแพลตฟอร์มแท็กซี่ จัดส่ง และโลจิสติกส์ระดับโลก รับรายได้ โหวต และรับส่วนลดสูงสุด 50%",
+                stat_mcap: "มูลค่าตลาด",
+                stat_supply: "อุปทานทั้งหมด",
+                stat_price: "ราคาเริ่มต้น",
+                btn_stake: "เริ่ม Stake →",
+                btn_explore: "สำรวจระบบนิเวศ"
+            },
+            ms: {
+                nav_home: "Utama",
+                nav_ecosystem: "Ekosistem",
+                nav_dashboard: "Papan Pemuka",
+                hero_badge: "🚀 Lancaran 2026",
+                hero_title1: "Terpencar",
+                hero_title2: "Teksi Masa Depan",
+                hero_desc: "$TAXI — token pertama di Solana untuk platform teksi, penghantaran, dan logistik global. Dapatkan pendapatan, undi, dan dapatkan diskaun sehingga 50%.",
+                stat_mcap: "Permodalan Pasaran",
+                stat_supply: "Bekalan Jumlah",
+                stat_price: "Harga Permulaan",
+                btn_stake: "Mula Stake →",
+                btn_explore: "Terokai Ekosistem"
+            },
+            id: {
+                nav_home: "Beranda",
+                nav_ecosystem: "Ekosistem",
+                nav_dashboard: "Dasbor",
+                hero_badge: "🚀 Peluncuran 2026",
+                hero_title1: "Terdesentralisasi",
+                hero_title2: "Taksi Masa Depan",
+                hero_desc: "$TAXI — token pertama di Solana untuk platform taksi, pengiriman, dan logistik global. Dapatkan pendapatan, beri suara, dan dapatkan diskon hingga 50%.",
+                stat_mcap: "Kapitalisasi Pasar",
+                stat_supply: "Total Pasokan",
+                stat_price: "Harga Awal",
+                btn_stake: "Mulai Stake →",
+                btn_explore: "Jelajahi Ekosistem"
+            },
+            es: {
+                nav_home: "Inicio",
+                nav_ecosystem: "Ecosistema",
+                nav_dashboard: "Panel",
+                hero_badge: "🚀 Lanzamiento 2026",
+                hero_title1: "Descentralizado",
+                hero_title2: "Taxi del Futuro",
+                hero_desc: "$TAXI — el primer token en Solana para una plataforma global de taxis, entregas y logística. Gana, vota y obtén hasta un 50% de descuento.",
+                stat_mcap: "Capitalización",
+                stat_supply: "Suministro Total",
+                stat_price: "Precio Inicial",
+                btn_stake: "Comenzar Staking →",
+                btn_explore: "Explorar Ecosistema"
+            },
+            ru: {
+                nav_home: "Главная",
+                nav_ecosystem: "Экосистема",
+                nav_dashboard: "Дашборд",
+                hero_badge: "🚀 Запуск 2026",
+                hero_title1: "Децентрализованное",
+                hero_title2: "Такси будущего",
+                hero_desc: "$TAXI — первый токен на Solana для глобальной платформы такси, доставки и логистики. Зарабатывай, голосуй и получай скидки до 50%.",
+                stat_mcap: "Капитализация",
+                stat_supply: "Общий объём",
+                stat_price: "Начальная цена",
+                btn_stake: "Начать стейкинг →",
+                btn_explore: "Изучить экосистему"
+            },
+            ar: {
+                nav_home: "الرئيسية",
+                nav_ecosystem: "النظام البيئي",
+                nav_dashboard: "لوحة التحكم",
+                hero_badge: "🚀 الإطلاق 2026",
+                hero_title1: "لامركزي",
+                hero_title2: "تاكسي المستقبل",
+                hero_desc: "$TAXI — أول رمز على Solana لمنصة عالمية للتاكسي والتوصيل والخدمات اللوجستية. اكسب وصوّت واحصل على خصومات تصل إلى 50%.",
+                stat_mcap: "القيمة السوقية",
+                stat_supply: "إجمالي العرض",
+                stat_price: "السعر الابتدائي",
+                btn_stake: "بدء التخزين →",
+                btn_explore: "استكشف النظام البيئي"
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('taxi_language', lang);
+            updateUI(lang);
+            const label = document.getElementById('currentLangLabel');
+            if (label) label.textContent = lang.toUpperCase();
+            const dropdown = document.getElementById('langDropdown');
+            if (dropdown) dropdown.classList.remove('show');
+        }
+
+        function updateUI(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        }
+
+        function toggleLanguages() {
+            const dropdown = document.getElementById('langDropdown');
+            if (dropdown) dropdown.classList.toggle('show');
+        }
+
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('langDropdown');
+            const btn = document.querySelector('.lang-btn');
+            if (dropdown && btn && !btn.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('taxi_language') || 'en';
+            setLanguage(savedLang);
+        });
+
+        // ===== КОШЕЛЕК =====
+        document.getElementById('connectWallet').addEventListener('click', async function() {
+            try {
+                if (window.solana && window.solana.isPhantom) {
+                    const response = await window.solana.connect();
+                    this.textContent = `🟢 ${response.publicKey.toString().slice(0, 4)}...${response.publicKey.toString().slice(-4)}`;
+                    this.style.background = '#00c853';
+                    this.style.color = '#fff';
+                } else {
+                    window.open('https://phantom.app/', '_blank');
+                    alert('Please install Phantom Wallet!');
+                }
+            } catch (error) {
+                console.error('Connection error:', error);
+            }
+        });
+
+        // ===== АНИМАЦИИ =====
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .exchange-card, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        console.log('🚖 $TAXI - Gold Taxi on Solana');
+        console.log('🔗 Address: 3YBgdJkNi41H4AtqNtywFdTx11H5CmDvt8qB3QHxninS');
+    </script>
 </body>
 </html>
