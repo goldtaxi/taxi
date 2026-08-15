@@ -1,3 +1,5 @@
+/* ДОБАВИТЬ В КОНЕЦ style.css */
+
 /* ===== БЕГУЩИЕ СТРОКИ ===== */
 .ticker-wrap {
     background: linear-gradient(90deg, #0a0a2e, #1a1a4e, #0a0a2e);
@@ -148,52 +150,6 @@
     font-size: 13px;
 }
 
-/* ===== ТОКЕН АДРЕСА ===== */
-.token-address {
-    margin: 10px 0;
-    padding: 8px 12px;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 8px;
-    font-size: 12px;
-    word-break: break-all;
-}
-
-.token-address .label {
-    color: #888;
-    font-weight: 600;
-}
-
-.token-address .address {
-    color: #4a9eff;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.token-address .address:hover {
-    color: #ffd700;
-    text-decoration: underline;
-}
-
-/* ===== КНОПКИ СТЕЙКИНГА ===== */
-.btn-stake {
-    width: 100%;
-    margin-top: 15px;
-    padding: 12px;
-    background: linear-gradient(135deg, #ffd700, #f7931a);
-    color: #000;
-    border: none;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.btn-stake:hover {
-    transform: scale(1.02);
-    box-shadow: 0 5px 30px rgba(255, 215, 0, 0.3);
-}
-
 /* ===== АДАПТИВ ===== */
 @media (max-width: 768px) {
     .ticker span {
@@ -214,8 +170,8 @@
         opacity: 0.06;
     }
     
-    .token-address {
-        font-size: 10px;
+    .hero-title {
+        font-size: 36px !important;
     }
 }
 
@@ -231,5 +187,9 @@
     
     .reason-item {
         padding: 8px;
+    }
+    
+    .hero-title {
+        font-size: 28px !important;
     }
 }
