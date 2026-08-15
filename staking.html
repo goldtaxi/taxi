@@ -5,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$TAXI Staking - Earn Rewards</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚖</text></svg>">
+    <link rel="icon" href="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png">
 </head>
 <body>
+    <!-- БЕГУЩАЯ СТРОКА #1 -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span>📈 STAKE $TAXI — EARN UP TO 30% APY 📈</span>
+            <span>💰 PASSIVE INCOME WITH AUTO-COMPOUNDING 💰</span>
+            <span>🏆 1.2B TOKENS STAKED ALREADY 🏆</span>
+            <span>🚀 START EARNING TODAY 🚀</span>
+            <span>💎 VIP ACCESS & DAO VOTING 💎</span>
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png" alt="$TAXI" height="40" style="border-radius: 50%;">
+                <img src="https://raw.githubusercontent.com/goldtaxi/taxi/refs/heads/main/taxi_logo.png" alt="$TAXI" height="45" style="border-radius: 50%;">
                 <span class="logo-text">$TAXI</span>
             </div>
             <div class="nav-links">
@@ -44,10 +55,22 @@
         </div>
     </nav>
 
+    <!-- ЛЕТАЮЩИЕ ПРЕДМЕТЫ -->
+    <div class="floating-objects">
+        <div class="float-coin">💰</div>
+        <div class="float-coin">💎</div>
+        <div class="float-coin">⭐</div>
+        <div class="float-coin">🚀</div>
+        <div class="float-coin">🏆</div>
+        <div class="float-coin">🔥</div>
+        <div class="float-coin">💵</div>
+        <div class="float-coin">📈</div>
+    </div>
+
     <section class="staking-hero">
         <div class="container">
             <h1>📈 <span class="gradient-text">Staking</span> Platform</h1>
-            <p>Earn up to 25% APY by staking your $TAXI tokens</p>
+            <p>Earn up to 30% APY by staking your $TAXI tokens</p>
         </div>
     </section>
 
@@ -90,6 +113,17 @@
         </div>
     </section>
 
+    <!-- БЕГУЩАЯ СТРОКА #2 -->
+    <div class="ticker-wrap ticker-secondary">
+        <div class="ticker">
+            <span>🔥 BEST APY: $UBER POOL 30% 🔥</span>
+            <span>📊 $TAXI POOL: 25% APY 📊</span>
+            <span>🏛️ $DHL POOL: 20% APY + DAO VOTING 🏛️</span>
+            <span>💎 AUTO-COMPOUNDING EVERY BLOCK 💎</span>
+            <span>🚀 START WITH MIN 1,000 $TAXI 🚀</span>
+        </div>
+    </div>
+
     <section class="staking-pools">
         <div class="container">
             <h2 class="section-title">🔥 Staking <span class="highlight">Pools</span></h2>
@@ -108,7 +142,7 @@
                         <div class="pool-stat"><span class="pool-label">Min Stake</span><span class="pool-value">1,000 $TAXI</span></div>
                         <div class="pool-stat"><span class="pool-label">Total Staked</span><span class="pool-value">1.2B $TAXI</span></div>
                     </div>
-                    <button class="btn-stake" onclick="stakeToken('TAXI')">Stake Now</button>
+                    <button class="btn-stake" onclick="alert('Staking $TAXI...\n\nPlease confirm in Phantom wallet.')">Stake Now</button>
                 </div>
 
                 <div class="pool-card">
@@ -125,7 +159,7 @@
                         <div class="pool-stat"><span class="pool-label">Min Stake</span><span class="pool-value">5,000 $UBER</span></div>
                         <div class="pool-stat"><span class="pool-label">Total Staked</span><span class="pool-value">800M $UBER</span></div>
                     </div>
-                    <button class="btn-stake" onclick="stakeToken('UBER')">Stake Now</button>
+                    <button class="btn-stake" onclick="alert('Staking $UBER...\n\nPlease confirm in Phantom wallet.')">Stake Now</button>
                 </div>
 
                 <div class="pool-card">
@@ -142,7 +176,7 @@
                         <div class="pool-stat"><span class="pool-label">Min Stake</span><span class="pool-value">2,000 $DHL</span></div>
                         <div class="pool-stat"><span class="pool-label">Total Staked</span><span class="pool-value">650M $DHL</span></div>
                     </div>
-                    <button class="btn-stake" onclick="stakeToken('DHL')">Stake Now</button>
+                    <button class="btn-stake" onclick="alert('Staking $DHL...\n\nPlease confirm in Phantom wallet.')">Stake Now</button>
                 </div>
             </div>
         </div>
@@ -248,18 +282,18 @@
                 </div>
                 <div class="footer-col">
                     <h4>Tokens</h4>
-                    <a href="#">$TAXI</a>
-                    <a href="#">$UBER</a>
-                    <a href="#">$DHL</a>
-                    <a href="#">$TIP</a>
-                    <a href="#">$FDX</a>
-                    <a href="#">$DIDI</a>
-                    <a href="#">$GRAB</a>
+                    <a href="#" onclick="window.open('https://solscan.io/token/3YBgdJkNi41H4AtqNtywFdTx11H5CmDvt8qB3QHxninS', '_blank')">$TAXI</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/uber/', '_blank')">$UBER</a>
+                    <a href="#" onclick="window.open('#', '_blank')">$DHL</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/tip/', '_blank')">$TIP</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/fdx/', '_blank')">$FDX</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/didi', '_blank')">$DIDI</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.github.io/grab/', '_blank')">$GRAB</a>
                 </div>
                 <div class="footer-col">
                     <h4>Resources</h4>
-                    <a href="#">Documentation</a>
-                    <a href="#">Whitepaper</a>
+                    <a href="#" onclick="window.open('https://docs.goldtaxi.io', '_blank')">Documentation</a>
+                    <a href="#" onclick="window.open('https://goldtaxi.io/whitepaper', '_blank')">Whitepaper</a>
                 </div>
                 <div class="footer-col">
                     <h4>Community</h4>
@@ -278,9 +312,6 @@
     <script src="script.js"></script>
     <script src="languages.js"></script>
     <script>
-        function stakeToken(token) {
-            alert(`Staking ${token} tokens...\n\nPlease confirm transaction in your wallet.`);
-        }
         function updateCalculator() {
             const token = document.getElementById('calcToken').value;
             const amount = parseFloat(document.getElementById('calcAmount').value) || 0;
